@@ -1,7 +1,7 @@
 import jwt, { Secret, SignOptions } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { GenerateToken } from '../../types';
-import ERROR from '../../constants/string';
+import ERROR from '../../constants/strings';
 import { INTERNAL_ERROR } from '../../errors';
 
 const generateToken: GenerateToken = (userCheck) => {
@@ -12,7 +12,7 @@ const generateToken: GenerateToken = (userCheck) => {
 
   const { _id, email } = userCheck;
   const jwtConfig: SignOptions = { algorithm: 'HS256' };
-  const user = { _id, email };
+  const user = { userId: _id, email };
 
   const token = jwt.sign({ user }, secret, jwtConfig);
 

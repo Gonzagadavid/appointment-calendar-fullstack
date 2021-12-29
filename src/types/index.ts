@@ -20,9 +20,19 @@ export type UserLogin = {
   password: string
 }
 
+export type Task = {
+  _id?: ObjectId,
+  title: string,
+  description: string,
+  date: Date,
+  userId: ObjectId,
+  email: string,
+  updated?: Date
+}
+
 export type Decode = {
   user: UserResp
-}
+};
 
 declare module 'express' {
   interface Request {
@@ -32,6 +42,8 @@ declare module 'express' {
 
 export type InsertUser = (_user: User) => Promise<UserResp>;
 
-export type Login = (_user: UserLogin) => Promise<string>
+export type Login = (_user: UserLogin) => Promise<string>;
 
-export type GenerateToken = (_userCheck: UserResp) => string
+export type GenerateToken = (_userCheck: UserResp) => string;
+
+export type InsertTask = (_task: Task) => Promise<Task>;

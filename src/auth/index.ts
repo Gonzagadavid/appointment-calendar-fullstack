@@ -2,7 +2,7 @@ import jwt, { Secret } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { UNAUTHORIZED_TOKEN, MISSING_AUTH_TOKEN, INTERNAL_ERROR } from '../errors';
 import { Decode, Handler } from '../types';
-import ERROR from '../constants/string';
+import ERROR from '../constants/strings';
 
 const authToken: Handler = (req, res, next) => {
   const { authorization: token } = req.headers;
