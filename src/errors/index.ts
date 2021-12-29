@@ -1,8 +1,15 @@
 import {
-  CONFLICT, LENGTH_REQUIRED, NOT_ACCEPTABLE, UNAUTHORIZED, UNPROCESSABLE_ENTITY,
+  CONFLICT,
+  INTERNAL_SERVER_ERROR,
+  LENGTH_REQUIRED, NOT_ACCEPTABLE,
+  UNAUTHORIZED,
+  UNPROCESSABLE_ENTITY,
 } from '../constants/status';
 
-export const INTERNAL_ERROR = 'Internal Error';
+export const INTERNAL_ERROR = {
+  message: 'Internal Error',
+  status: INTERNAL_SERVER_ERROR,
+};
 
 export const REQUIRED_FIELDS = {
   message: 'Required fields are empty',
@@ -27,4 +34,14 @@ export const EMAIL_ALREADY_EXISTS = {
 export const USER_NOT_AUTHORIZED = {
   message: 'incorrect email or password',
   status: UNAUTHORIZED,
+};
+
+export const UNAUTHORIZED_TOKEN = {
+  status: UNAUTHORIZED,
+  message: 'jwt malformed',
+};
+
+export const MISSING_AUTH_TOKEN = {
+  status: UNAUTHORIZED,
+  message: 'missing auth token',
 };

@@ -20,6 +20,16 @@ export type UserLogin = {
   password: string
 }
 
+export type Decode = {
+  user: UserResp
+}
+
+declare module 'express' {
+  interface Request {
+      user?: UserResp
+  }
+}
+
 export type InsertUser = (_user: User) => Promise<UserResp>;
 
 export type Login = (_user: UserLogin) => Promise<string>
