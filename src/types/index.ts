@@ -7,7 +7,7 @@ export type User = {
   name: string,
   lastname: string,
   email: string,
-  password?: string
+  password: string
 }
 
 export type UserResp = {
@@ -15,4 +15,13 @@ export type UserResp = {
   email: string,
 }
 
+export type UserLogin = {
+  email: string,
+  password: string
+}
+
 export type InsertUser = (_user: User) => Promise<UserResp>;
+
+export type Login = (_user: UserLogin) => Promise<string>
+
+export type GenerateToken = (_userCheck: UserResp) => string

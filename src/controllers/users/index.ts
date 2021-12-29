@@ -1,3 +1,7 @@
+import postLogin from './postLogin';
 import postUsers from './postUser';
 
-export default postUsers;
+export {
+  postUsers,
+  postLogin,
+};

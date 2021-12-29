@@ -1,5 +1,5 @@
 import { OK } from '../../constants/status';
-import insertUser from '../../services';
+import { insertUser } from '../../services/users';
 import { Handler } from '../../types';
 
 const postUsers: Handler = async (req, res, next) => {

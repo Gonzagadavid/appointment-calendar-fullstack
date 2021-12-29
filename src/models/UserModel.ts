@@ -7,7 +7,6 @@ class UserModel extends DBModel {
 
   async findUserByEmail(email: string) {
     const user = await this.findOne({ email });
-    console.log(user);
     return user;
   }
 }

@@ -1,11 +1,11 @@
 import {
-  CONFLICT, LENGTH_REQUIRED, NOT_ACCEPTABLE, UNPROCESSABLE_ENTITY,
+  CONFLICT, LENGTH_REQUIRED, NOT_ACCEPTABLE, UNAUTHORIZED, UNPROCESSABLE_ENTITY,
 } from '../constants/status';
 
 export const INTERNAL_ERROR = 'Internal Error';
 
 export const REQUIRED_FIELDS = {
-  message: 'The email, name, lastname and password fields are mandatory',
+  message: 'Required fields are empty',
   status: UNPROCESSABLE_ENTITY,
 };
 
@@ -22,4 +22,9 @@ export const INVALID_EMAIL = {
 export const EMAIL_ALREADY_EXISTS = {
   message: 'email already exists',
   status: CONFLICT,
+};
+
+export const USER_NOT_AUTHORIZED = {
+  message: 'incorrect email or password',
+  status: UNAUTHORIZED,
 };

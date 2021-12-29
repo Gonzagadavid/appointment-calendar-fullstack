@@ -7,6 +7,7 @@ const {
   UNPROCESSABLE_ENTITY,
   NOT_ACCEPTABLE,
   CONFLICT,
+  UNAUTHORIZED,
 } = StatusCodes;
 
 export {
@@ -16,4 +17,5 @@ export {
   LENGTH_REQUIRED,
   NOT_ACCEPTABLE,
   CONFLICT,
+  UNAUTHORIZED,
 };
