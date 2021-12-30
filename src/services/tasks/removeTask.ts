@@ -9,7 +9,7 @@ const removeTask: RemoveTask = async (id, userId) => {
 
   if (!oldTask) throw NOT_FOUND_TASK;
 
-  if (oldTask.userId.toString() !== userId) throw UNAUTHORIZED_USER;
+  if (oldTask.userId !== userId) throw UNAUTHORIZED_USER;
 
   await Task.removeTask(id);
 };

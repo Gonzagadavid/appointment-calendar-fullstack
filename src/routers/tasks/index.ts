@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import authToken from '../../auth';
-import { deleteTask, postTask, putTask } from '../../controllers/tasks';
+import {
+  deleteTask, getTask, postTask, putTask,
+} from '../../controllers/tasks';
 import getAllTasks from '../../controllers/tasks/getAllTask';
 import { validateTask } from '../../middlewares';
 
@@ -8,7 +10,7 @@ const router = Router();
 
 router.get('/', authToken, getAllTasks);
 
-router.get('/:id');
+router.get('/:id', authToken, getTask);
 
 router.post('/', authToken, validateTask, postTask);
 

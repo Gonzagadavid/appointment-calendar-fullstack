@@ -59,3 +59,5 @@ export type UpdateTask = (_id: string, _task: Task) => Promise<void>;
 export type RemoveTask = (_id: string, _userId: string) => Promise<void>;
 
 export type GetAllTasks = (_userId: string) => Promise<WithId<Document>[]>
+
+export type GetTask = (_id: string, _userId: string) => Promise<WithId<Document>>

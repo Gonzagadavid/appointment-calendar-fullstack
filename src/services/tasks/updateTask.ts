@@ -10,7 +10,7 @@ const updateTask: UpdateTask = async (id, task) => {
 
   if (!oldTask) throw NOT_FOUND_TASK;
 
-  if (oldTask.userId.toString() !== task.userId) throw UNAUTHORIZED_USER;
+  if (oldTask.userId !== task.userId) throw UNAUTHORIZED_USER;
 
   await Task.updateTask(id, { ...task, updated });
 };
