@@ -1,3 +1,5 @@
 export const ERROR = 'error';
 
-export default ERROR;
+export const TASK_MODIFY = 'task modified successfully';
+
+export const TASK_REMOVED = 'task removed successfully';

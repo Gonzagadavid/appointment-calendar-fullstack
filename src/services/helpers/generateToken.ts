@@ -1,7 +1,7 @@
 import jwt, { Secret, SignOptions } from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { GenerateToken } from '../../types';
-import ERROR from '../../constants/strings';
+import { ERROR } from '../../constants/strings';
 import { INTERNAL_ERROR } from '../../errors';
 
 const generateToken: GenerateToken = (userCheck) => {

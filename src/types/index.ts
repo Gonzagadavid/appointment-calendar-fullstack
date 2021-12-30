@@ -10,6 +10,11 @@ export type User = {
   password: string
 }
 
+export type UserInfo = {
+  userId: string,
+  email:string
+}
+
 export type UserResp = {
   _id: ObjectId,
   email: string,
@@ -32,12 +37,12 @@ export type Task = {
 }
 
 export type Decode = {
-  user: UserResp
+  user: UserInfo
 };
 
 declare module 'express' {
   interface Request {
-      user?: UserResp
+      user?: UserInfo
   }
 }
 
@@ -50,3 +55,5 @@ export type GenerateToken = (_userCheck: UserResp) => string;
 export type InsertTask = (_task: Task) => Promise<Task>;
 
 export type UpdateTask = (_id: string, _task: Task) => Promise<void>;
+
+export type RemoveTask = (_id: string, _userId: string) => Promise<void>;

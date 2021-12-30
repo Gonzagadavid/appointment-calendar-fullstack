@@ -18,6 +18,12 @@ class TaskModel extends DBModel {
 
     return task;
   }
+
+  async removeTask(id: string) {
+    const taskUpdated = await this.deleteOne({ _id: new ObjectId(id) });
+
+    return taskUpdated;
+  }
 }
 
 export default TaskModel;

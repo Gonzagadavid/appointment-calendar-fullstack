@@ -1,4 +1,5 @@
 import { ACCEPTED } from '../../constants/status';
+import { TASK_MODIFY } from '../../constants/strings';
 import { updateTask } from '../../services/tasks';
 import { Handler } from '../../types';
 
@@ -8,7 +9,7 @@ const putTask: Handler = async (req, res, next) => {
 
     await updateTask(id, { ...user, ...body });
 
-    res.status(ACCEPTED).end();
+    res.status(ACCEPTED).json({ message: TASK_MODIFY });
   } catch (err) {
     next(err);
   }

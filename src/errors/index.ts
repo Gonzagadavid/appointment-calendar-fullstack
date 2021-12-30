@@ -51,3 +51,8 @@ export const NOT_FOUND_TASK = {
   status: NOT_FOUND,
   message: 'task not found',
 };
+
+export const UNAUTHORIZED_USER = {
+  status: UNAUTHORIZED,
+  message: 'unauthorized user',
+};
