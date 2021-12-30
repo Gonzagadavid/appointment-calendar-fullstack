@@ -1,4 +1,4 @@
-import { OK } from '../../constants/status';
+import { CREATED } from '../../constants/status';
 import { insertUser } from '../../services/users';
 import { Handler } from '../../types';
 
@@ -12,7 +12,7 @@ const postUsers: Handler = async (req, res, next) => {
       email, name, lastname, password,
     });
 
-    res.status(OK).json(resp);
+    res.status(CREATED).json(resp);
   } catch (err) {
     next(err);
   }

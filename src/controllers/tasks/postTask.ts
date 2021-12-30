@@ -1,5 +1,5 @@
-import { OK } from '../../constants/status';
-import insertTask from '../../services/tasks/insertTask';
+import { CREATED } from '../../constants/status';
+import { insertTask } from '../../services/tasks';
 import { Handler } from '../../types';
 
 const postTask: Handler = async (req, res, next) => {
@@ -8,7 +8,7 @@ const postTask: Handler = async (req, res, next) => {
 
     const insertedTask = await insertTask({ ...user, ...body });
 
-    res.status(OK).json(insertedTask);
+    res.status(CREATED).json(insertedTask);
   } catch (err) {
     next(err);
   }

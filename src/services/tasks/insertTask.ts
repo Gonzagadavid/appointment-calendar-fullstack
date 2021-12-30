@@ -3,10 +3,9 @@ import { InsertTask } from '../../types';
 
 const insertTask: InsertTask = async (task) => {
   const Task = new TaskModel();
-
-  const { insertedId } = await Task.insertOne(task);
-
   const updated = new Date();
+
+  const { insertedId } = await Task.insertOne({ ...task, updated });
 
   return { _id: insertedId, ...task, updated };
 };

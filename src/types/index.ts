@@ -25,6 +25,7 @@ export type Task = {
   title: string,
   description: string,
   date: Date,
+  status: string,
   userId: ObjectId,
   email: string,
   updated?: Date
@@ -47,3 +48,5 @@ export type Login = (_user: UserLogin) => Promise<string>;
 export type GenerateToken = (_userCheck: UserResp) => string;
 
 export type InsertTask = (_task: Task) => Promise<Task>;
+
+export type UpdateTask = (_id: string, _task: Task) => Promise<void>;

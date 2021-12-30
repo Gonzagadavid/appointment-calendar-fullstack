@@ -2,6 +2,7 @@ import {
   CONFLICT,
   INTERNAL_SERVER_ERROR,
   LENGTH_REQUIRED, NOT_ACCEPTABLE,
+  NOT_FOUND,
   UNAUTHORIZED,
   UNPROCESSABLE_ENTITY,
 } from '../constants/status';
@@ -44,4 +45,9 @@ export const UNAUTHORIZED_TOKEN = {
 export const MISSING_AUTH_TOKEN = {
   status: UNAUTHORIZED,
   message: 'missing auth token',
+};
+
+export const NOT_FOUND_TASK = {
+  status: NOT_FOUND,
+  message: 'task not found',
 };

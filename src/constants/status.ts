@@ -8,6 +8,9 @@ const {
   NOT_ACCEPTABLE,
   CONFLICT,
   UNAUTHORIZED,
+  NOT_FOUND,
+  CREATED,
+  ACCEPTED,
 } = StatusCodes;
 
 export {
@@ -18,4 +21,7 @@ export {
   NOT_ACCEPTABLE,
   CONFLICT,
   UNAUTHORIZED,
+  NOT_FOUND,
+  CREATED,
+  ACCEPTED,
 };

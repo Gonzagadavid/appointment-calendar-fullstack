@@ -26,17 +26,17 @@ class DBModel {
     return response;
   }
 
-  // async updateOne(filter, modify) {
-  //   const db = await connection();
-  //   const response = await db.collection(this.collection).updateOne(filter, modify);
-  //   return response;
-  // }
+  async updateOne(filter: object, modify: object) {
+    const db = await connection();
+    const response = await db.collection(this.collection).updateOne(filter, modify);
+    return response;
+  }
 
-  // async deleteOne(filter) {
-  //   const db = await connection();
-  //   const response = await db.collection(this.collection).deleteOne(filter);
-  //   return response;
-  // }
+  async deleteOne(filter: object) {
+    const db = await connection();
+    const response = await db.collection(this.collection).deleteOne(filter);
+    return response;
+  }
 }
 
 export default DBModel;
