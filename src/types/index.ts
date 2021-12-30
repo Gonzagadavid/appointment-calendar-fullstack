@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId, WithId } from 'mongodb';
 
 export type Handler = (_req: Request, _res: Response, _next: NextFunction) => void;
 
@@ -57,3 +57,5 @@ export type InsertTask = (_task: Task) => Promise<Task>;
 export type UpdateTask = (_id: string, _task: Task) => Promise<void>;
 
 export type RemoveTask = (_id: string, _userId: string) => Promise<void>;
+
+export type GetAllTasks = (_userId: string) => Promise<WithId<Document>[]>

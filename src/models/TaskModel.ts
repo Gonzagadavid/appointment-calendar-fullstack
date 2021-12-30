@@ -24,6 +24,11 @@ class TaskModel extends DBModel {
 
     return taskUpdated;
   }
+
+  async findAllTasks(userId: string) {
+    const tasks = await this.find({ userId });
+    return tasks;
+  }
 }
 
 export default TaskModel;
