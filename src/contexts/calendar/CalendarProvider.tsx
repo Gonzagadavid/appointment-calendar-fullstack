@@ -14,7 +14,6 @@ function CalendarProvider(props: PropsWithChildren<ReactNode>) {
 
   const getBoard = useCallback(async () => {
     const board = await getMonth(month, year);
-    global.console.log(board);
     setCalendarBoard(board);
   }, [month, year]);
 

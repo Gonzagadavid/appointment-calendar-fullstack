@@ -1,0 +1,17 @@
+.CalendarBoard {
+  display: grid;
+  background-color:chartreuse;
+  height: 80%;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.CalendarBoard .week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.CalendarBoard .day {
+  background-color: transparent;
+  border: solid black 1px;
+  font-size: 200%;
+}
