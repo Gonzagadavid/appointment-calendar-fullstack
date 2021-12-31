@@ -1,10 +1,13 @@
 import React from 'react';
+import CalendarProvider from '../../contexts/calendar/CalendarProvider';
 import CalendarHeader from '../CalendarHeader';
 
 function Calendar() {
   return (
     <div>
-      <CalendarHeader />
+      <CalendarProvider>
+        <CalendarHeader />
+      </CalendarProvider>
     </div>
   );
 }

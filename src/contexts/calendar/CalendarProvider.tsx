@@ -1,21 +1,27 @@
 import React, {
   PropsWithChildren, ReactNode, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
+import getMonth from '../../services/api/getMonth';
 import AppContext from '../app/AppContext';
+import { DefaultState } from '../app/types';
 import CalendarContext from './CalendarContext';
 
 function CalendarProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
   const appContext = useContext(AppContext);
-  const { month, year } = appContext;
+  const { month, year } = appContext as DefaultState;
   const [calendarBoard, setCalendarBoard] = useState([]);
 
   const getBoard = useCallback(async () => {
-
+    const board = await getMonth(month, year);
+    global.console.log(board);
+    setCalendarBoard(board);
   }, [month, year]);
 
-  const context = {
+  useEffect(() => { getBoard(); }, [getBoard]);
 
+  const context = {
+    calendarBoard,
   };
 
   const contextMemo = useMemo(() => context, [context]);
