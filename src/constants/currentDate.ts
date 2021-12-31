@@ -8,4 +8,8 @@ const monthPosition = date.getMonth();
 
 const monthCrr = monthNames[monthPosition];
 
-export { date, yearCrr, monthCrr };
+const dayCrr = date.getDate();
+
+export {
+  date, yearCrr, monthCrr, dayCrr,
+};
