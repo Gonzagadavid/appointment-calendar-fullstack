@@ -1,0 +1,6 @@
+.WeekNames {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: rgb(136, 25, 25);
+  height: 5%;
+}

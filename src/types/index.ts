@@ -1,10 +1,11 @@
-import { Dispatch, ReactNode, SetStateAction } from 'react';
+import { ReactNode } from 'react';
+
+export type ArrayParam = Array<number|string|boolean>
 
 export type DefaultState = {
   year: number,
   month: string,
-  setYear: Dispatch<SetStateAction<number>>,
-  setMonth: Dispatch<SetStateAction<string>>,
+  setDate: (_state: ArrayParam) => ArrayParam,
 }
 
 export type CalendarState = {

@@ -6,7 +6,7 @@ import { decrementMonth, incrementMonth } from '../../functions';
 function MonthButton(props: { text: string}) {
   const appContext = useContext(AppContext) as DefaultState;
   const {
-    month, setMonth, year, setYear,
+    month, year, setDate,
   } = appContext;
   const { text } = props;
   const checkText = text === 'increment';
@@ -14,8 +14,7 @@ function MonthButton(props: { text: string}) {
   const callback = checkText ? incrementMonth : decrementMonth;
   const moveMonth = () => {
     const { newMonth, newYear } = callback(month, year);
-    setMonth(newMonth);
-    setYear(newYear);
+    setDate([newYear, newMonth]);
   };
 
   return (

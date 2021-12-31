@@ -3,3 +3,7 @@
  grid-template-rows: repeat(13, 1fr);
  height: 80%;
 }
+
+.SelectDate .selected {
+  background-color: rgb(0, 255, 13);
+}

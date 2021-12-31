@@ -1,19 +1,18 @@
-import React, {
-  PropsWithChildren, ReactNode, useMemo, useState,
-} from 'react';
+import React, { PropsWithChildren, ReactNode, useMemo } from 'react';
 import AppContext from './AppContext';
 import { monthCrr, yearCrr } from '../../constants/currentDate';
+import useTwoState from '../../hooks/useTwoState';
 
 function AppProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
-  const [year, setYear] = useState(yearCrr);
-  const [month, setMonth] = useState(monthCrr);
+  // const [year, setYear] = useState(yearCrr);
+  // const [month, setMonth] = useState(monthCrr);
+  const [year, month, setDate] = useTwoState([yearCrr, monthCrr]);
 
   const context = {
     year,
-    setYear,
     month,
-    setMonth,
+    setDate,
   };
 
   const contextMemo = useMemo(() => context, [context]);

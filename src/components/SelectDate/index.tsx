@@ -10,13 +10,13 @@ import './style.css';
 function SelectDate() {
   const appContext = useContext(AppContext) as DefaultState;
   const {
-    year, setYear, month, setMonth,
+    year, month, setDate,
   } = appContext;
   const options = yearOptions(year);
 
   return (
     <div className="SelectDate">
-      <select value={year} onChange={({ target: { value } }) => setYear(+value)}>
+      <select value={year} onChange={({ target: { value } }) => setDate([+value, month])}>
         {options.map((yearValue) => (
           <option key={uuidv4()}>{yearValue}</option>
         ))}
@@ -24,8 +24,8 @@ function SelectDate() {
       {monthNames.map((monthName) => (
         <button
           type="button"
-          className={`selectmonth${monthName === month ? 'selected' : ''}`}
-          onClick={() => setMonth(monthName)}
+          className={`selectmonth${monthName === month ? ' selected' : ''}`}
+          onClick={() => setDate([year, monthName])}
           key={uuidv4()}
         >
           {monthName}
