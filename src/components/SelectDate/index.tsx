@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { monthNames } from '../../constants/namesList';
 import AppContext from '../../contexts/app/AppContext';
-import { DefaultState } from '../../contexts/app/types';
-import yearOptions from '../../functions/yearOptions';
+import { DefaultState } from '../../types';
+import { yearOptions } from '../../functions';
+
+import './style.css';
 
 function SelectDate() {
   const appContext = useContext(AppContext) as DefaultState;
@@ -12,10 +15,10 @@ function SelectDate() {
   const options = yearOptions(year);
 
   return (
-    <div>
+    <div className="SelectDate">
       <select value={year} onChange={({ target: { value } }) => setYear(+value)}>
         {options.map((yearValue) => (
-          <option>{yearValue}</option>
+          <option key={uuidv4()}>{yearValue}</option>
         ))}
       </select>
       {monthNames.map((monthName) => (
@@ -23,6 +26,7 @@ function SelectDate() {
           type="button"
           className={`selectmonth${monthName === month ? 'selected' : ''}`}
           onClick={() => setMonth(monthName)}
+          key={uuidv4()}
         >
           {monthName}
         </button>

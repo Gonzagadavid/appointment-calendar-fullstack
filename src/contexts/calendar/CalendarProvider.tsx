@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import getMonth from '../../services/api/getMonth';
 import AppContext from '../app/AppContext';
-import { DefaultState } from '../app/types';
+import { DefaultState } from '../../types';
 import CalendarContext from './CalendarContext';
 
 function CalendarProvider(props: PropsWithChildren<ReactNode>) {

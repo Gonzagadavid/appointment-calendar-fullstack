@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import CalendarContext from '../../contexts/calendar/CalendarContext';
-import { CalendarState } from '../../contexts/calendar/types';
+import { CalendarState } from '../../types';
 import './style.css';
 
 function CalendarBoard() {
@@ -10,9 +11,9 @@ function CalendarBoard() {
   return (
     <div className="CalendarBoard">
       { calendarBoard.map((week) => (
-        <div className="week">
+        <div className="week" key={uuidv4()}>
           { week.map((day) => (
-            <button type="button" className="day">{day || ''}</button>
+            <button type="button" className="day" key={uuidv4()}>{day || ''}</button>
           ))}
         </div>
       ))}

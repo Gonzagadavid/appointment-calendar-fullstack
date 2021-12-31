@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../../contexts/app/AppContext';
-import { DefaultState } from '../../contexts/app/types';
+import { DefaultState } from '../../types';
 import { decrementMonth, incrementMonth } from '../../functions';
 
 function MonthButton(props: { text: string}) {
