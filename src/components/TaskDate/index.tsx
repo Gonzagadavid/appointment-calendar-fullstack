@@ -6,7 +6,7 @@ function TaskDate() {
   const appContext = useContext(AppContext);
   const { selectedYear, selectedMonth, selectedDay } = appContext as DefaultState;
 
-  const textDate = `${selectedMonth} ${selectedDay}, ${selectedYear}`;
+  const textDate = `Task List ${selectedMonth} ${selectedDay}, ${selectedYear}`;
   return (
     <div>
       <h2>{textDate}</h2>

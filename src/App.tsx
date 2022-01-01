@@ -6,6 +6,7 @@ import AppProvider from './contexts/app/AppProvider';
 import Header from './components/Header';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
+import UserProvider from './contexts/user/UserContext';
 
 function App() {
   return (
@@ -15,12 +16,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-        <Routes>
-          <Route path="/login" element={<LogIn />} />
-        </Routes>
-        <Routes>
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
+        <UserProvider>
+          <Routes>
+            <Route path="/login" element={<LogIn />} />
+          </Routes>
+          <Routes>
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </UserProvider>
       </AppProvider>
     </div>
   );

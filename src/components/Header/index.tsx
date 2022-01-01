@@ -1,19 +1,21 @@
-import React from 'react';
-import checkLogin from '../../functions/checkLogin';
+import React, { useContext } from 'react';
+import AppContext from '../../contexts/app/AppContext';
+import { DefaultState } from '../../types';
 import ConditionComponent from '../ConditionComponent';
 import Greet from '../Greet';
 import LoginAcess from '../LoginAcess';
 import './style.css';
 
 function Header() {
-  const login = checkLogin();
+  const appContext = useContext(AppContext);
+  const { connected } = appContext as DefaultState;
   return (
     <div className="Header">
-      <h1>APP&sbquo;ointment Calendar</h1>
-      <ConditionComponent condition={!login} className="userBox">
+      <h1>APP&rsquo;ointment Calendar</h1>
+      <ConditionComponent condition={!connected} className="userBox">
         <LoginAcess />
       </ConditionComponent>
-      <ConditionComponent condition={login} className="userBox">
+      <ConditionComponent condition={connected} className="userBox">
         <Greet />
       </ConditionComponent>
     </div>

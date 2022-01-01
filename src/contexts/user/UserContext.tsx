@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, ReactNode, useMemo } from 'react';
-import TaskContext from './TaskContext';
+import UserContext from './UserProvider';
 
-function TaskProvider(props: PropsWithChildren<ReactNode>) {
+function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
 
   const context = {
@@ -11,10 +11,10 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const contextMemo = useMemo(() => context, [context]);
 
   return (
-    <TaskContext.Provider value={contextMemo}>
+    <UserContext.Provider value={contextMemo}>
       {children}
-    </TaskContext.Provider>
+    </UserContext.Provider>
   );
 }
 
-export default TaskProvider;
+export default UserProvider;

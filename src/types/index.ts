@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, SetStateAction, Dispatch } from 'react';
 
 export type ArrayParam = Array<number|string|boolean>
 
@@ -10,6 +10,8 @@ export type DefaultState = {
   selectedMonth: string,
   selectedYear: number,
   setSelectedDate: (_state: ArrayParam) => ArrayParam,
+  connected: boolean,
+  setconnected: Dispatch<SetStateAction<boolean>>,
 }
 
 export type CalendarState = {
@@ -21,3 +23,7 @@ export type PropsCondition = {
   condition: boolean,
   className: string
 }
+
+export type HandlerFunction = (
+  _element: EventTarget, _callback:Dispatch<SetStateAction<string>>
+  ) => void
