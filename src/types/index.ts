@@ -46,7 +46,9 @@ declare module 'express' {
   }
 }
 
-export type InsertUser = (_user: User) => Promise<UserResp>;
+export type Message = { message: string}
+
+export type InsertUser = (_user: User) => Promise<Message>;
 
 export type Login = (_user: UserLogin) => Promise<string>;
 
