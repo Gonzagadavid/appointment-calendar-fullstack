@@ -1,20 +1,5 @@
-import React, { PropsWithChildren, ReactNode, useMemo } from 'react';
-import UserContext from './UserProvider';
+import { createContext } from 'react';
 
-function UserProvider(props: PropsWithChildren<ReactNode>) {
-  const { children } = props;
+const UserContext = createContext({});
 
-  const context = {
-
-  };
-
-  const contextMemo = useMemo(() => context, [context]);
-
-  return (
-    <UserContext.Provider value={contextMemo}>
-      {children}
-    </UserContext.Provider>
-  );
-}
-
-export default UserProvider;
+export default UserContext;

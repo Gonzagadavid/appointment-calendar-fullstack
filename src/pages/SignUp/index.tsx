@@ -1,46 +1,34 @@
-import React, { useState } from 'react';
-import { HandlerFunction } from '../../types';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import UserContext from '../../contexts/user/UserContext';
+import { UserState } from '../../types';
 import './style.css';
 
 function SignUp() {
-  const [name, setName] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const handler: HandlerFunction = (element, callback) => {
-    const { value } = element as HTMLInputElement;
-    callback(value);
-  };
+  const userContext = useContext(UserContext);
+  const {
+    name, lastname, email, password, confirm, setName,
+    setLastname, setPassword, setEmail, setConfirm, sendNewUser,
+  } = userContext as UserState;
 
   return (
     <div className="SignUp">
       <h2>Sign up</h2>
       <div className="form">
-        <input
-          type="text"
-          value={name}
-          onInput={({ target }) => handler(target, setName)}
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          value={lastname}
-          onInput={({ target }) => handler(target, setLastname)}
-          placeholder="Lastname"
-        />
-        <input
-          type="email"
-          value={email}
-          onInput={({ target }) => handler(target, setEmail)}
-          placeholder="email@server.com"
-        />
-        <input
-          type="password"
-          value={password}
-          onInput={({ target }) => handler(target, setPassword)}
-          placeholder="password"
-        />
-        <button type="button">Send</button>
+        <input type="text" value={name} onInput={setName} placeholder="Name" />
+        <input type="text" value={lastname} onInput={setLastname} placeholder="Lastname" />
+        <input type="email" value={email} onInput={setEmail} placeholder="email@server.com" />
+        <input type="password" value={password} onInput={setPassword} placeholder="password" />
+        <input type="password" value={confirm} onInput={setConfirm} placeholder="password" />
+        <div className="buttons">
+          <button type="button" onClick={sendNewUser}>Send</button>
+          <Link to="/login">
+            <button type="button">Log In</button>
+          </Link>
+          <Link to="/">
+            <button type="button">Cancel</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

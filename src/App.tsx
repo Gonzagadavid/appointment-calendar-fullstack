@@ -6,7 +6,7 @@ import AppProvider from './contexts/app/AppProvider';
 import Header from './components/Header';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
-import UserProvider from './contexts/user/UserContext';
+import UserProvider from './contexts/user/UserProvider';
 
 function App() {
   return (

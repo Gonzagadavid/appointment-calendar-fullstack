@@ -1,4 +1,6 @@
-import { ReactNode, SetStateAction, Dispatch } from 'react';
+import {
+  ReactNode, SetStateAction, Dispatch, FormEvent,
+} from 'react';
 
 export type ArrayParam = Array<number|string|boolean>
 
@@ -18,6 +20,27 @@ export type CalendarState = {
   calendarBoard: number[][]
 }
 
+export type UserState = {
+  name: string,
+  lastname: string,
+  email: string,
+  password: string,
+  confirm: string,
+  setName: (_event: FormEvent<Element>) => void,
+  setLastname: (_event: FormEvent<Element>) => void,
+  setEmail: (_event: FormEvent<Element>) => void,
+  setPassword: (_event: FormEvent<Element>)=> void,
+  setConfirm: (_event: FormEvent<Element>)=> void,
+  sendNewUser: () => void
+};
+
+export type User = {
+  name: string,
+  lastname: string,
+  email: string,
+  password: string,
+}
+
 export type PropsCondition = {
   children: ReactNode,
   condition: boolean,
@@ -27,3 +50,7 @@ export type PropsCondition = {
 export type HandlerFunction = (
   _element: EventTarget, _callback:Dispatch<SetStateAction<string>>
   ) => void
+
+type CallbackEvent = (_event: FormEvent) => void
+
+export type useInputResult = Array<string|number|CallbackEvent>

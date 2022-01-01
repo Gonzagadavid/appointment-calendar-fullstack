@@ -20,7 +20,14 @@
   font-size: 30px;
 }
 
-.SignUp .form button {
-  width: 20%;
+
+.SignUp .form .buttons {
+ width: 100%;
+}
+
+
+.SignUp .form .buttons button {
+  width: 15%;
+  margin: 10px;
   font-size: 20px;
 }
