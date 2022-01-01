@@ -5,9 +5,9 @@ import { Handler } from '../../types';
 const postLogin: Handler = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const token = await login({ email, password });
+    const user = await login({ email, password });
 
-    res.status(ACCEPTED).json({ token });
+    res.status(ACCEPTED).json(user);
   } catch (err) {
     next(err);
   }

@@ -46,11 +46,15 @@ declare module 'express' {
   }
 }
 
+export type UserInserted = User & UserResp
+
+export type UserName = { token: string, userName: string }
+
 export type Message = { message: string}
 
 export type InsertUser = (_user: User) => Promise<Message>;
 
-export type Login = (_user: UserLogin) => Promise<string>;
+export type Login = (_user: UserLogin) => Promise<UserName>;
 
 export type GenerateToken = (_userCheck: UserResp) => string;
 
