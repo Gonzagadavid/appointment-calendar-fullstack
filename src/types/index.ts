@@ -40,6 +40,8 @@ export type Decode = {
   user: UserInfo
 };
 
+export type TaskProcess = { id: ObjectId, title: string, date: Date }
+
 declare module 'express' {
   interface Request {
       user?: UserInfo
@@ -64,6 +66,6 @@ export type UpdateTask = (_id: string, _task: Task) => Promise<void>;
 
 export type RemoveTask = (_id: string, _userId: string) => Promise<void>;
 
-export type GetAllTasks = (_userId: string) => Promise<WithId<Document>[]>
+export type GetAllTasks = (_userId: string) => Promise<TaskProcess[]>
 
 export type GetTask = (_id: string, _userId: string) => Promise<WithId<Document>>
