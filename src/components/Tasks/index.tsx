@@ -1,10 +1,15 @@
 import React from 'react';
+import TaskProvider from '../../contexts/tasks/TaskProvider';
 import TaskDate from '../TaskDate';
+import TaskList from '../TaskList';
 
 function Tasks() {
   return (
     <div>
-      <TaskDate />
+      <TaskProvider>
+        <TaskDate />
+        <TaskList />
+      </TaskProvider>
     </div>
   );
 }

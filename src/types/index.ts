@@ -39,6 +39,17 @@ export type UserState = {
   sendLogin: () => void,
 };
 
+export type TaskItem = {
+  id: string,
+  title: string,
+  date: string,
+}
+
+export type TaskState = {
+  allTasks: TaskItem[],
+  tasksSelected: TaskItem[],
+}
+
 export type User = {
   name: string,
   lastname: string,
@@ -64,3 +75,9 @@ export type HandlerFunction = (
 type CallbackEvent = (_event: FormEvent) => void
 
 export type useInputResult = Array<string|number|CallbackEvent>
+
+export type UserInfo = { token: string, userName: string }
+
+export type TaksSelectedDate = {
+  selectedYear: number, selectedMonth: string, selectedDay: number
+}
