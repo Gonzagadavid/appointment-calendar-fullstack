@@ -1,0 +1,12 @@
+.Message {
+  background-color: rgb(105, 207, 211);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 400px;
+  height: 250px;
+  left: 30%;
+  top: 30%;
+}

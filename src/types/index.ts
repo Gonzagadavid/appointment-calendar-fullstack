@@ -14,6 +14,8 @@ export type DefaultState = {
   setSelectedDate: (_state: ArrayParam) => ArrayParam,
   connected: boolean,
   setconnected: Dispatch<SetStateAction<boolean>>,
+  message: string,
+  setMessage: Dispatch<SetStateAction<string>>,
 }
 
 export type CalendarState = {
@@ -45,6 +47,11 @@ export type PropsCondition = {
   children: ReactNode,
   condition: boolean,
   className: string
+}
+
+export type UserLogin = {
+  email: string,
+  password: string,
 }
 
 export type HandlerFunction = (

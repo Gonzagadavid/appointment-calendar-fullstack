@@ -7,11 +7,13 @@ import Header from './components/Header';
 import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import UserProvider from './contexts/user/UserProvider';
+import Message from './components/Menssage';
 
 function App() {
   return (
     <div className="App">
       <AppProvider>
+        <Message />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

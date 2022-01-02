@@ -11,6 +11,8 @@ function SignUp() {
     setLastname, setPassword, setEmail, setConfirm, sendNewUser,
   } = userContext as UserState;
 
+  const requiriedFields = name && lastname && email && password && confirm;
+
   return (
     <div className="SignUp">
       <h2>Sign up</h2>
@@ -21,7 +23,7 @@ function SignUp() {
         <input type="password" value={password} onInput={setPassword} placeholder="password" />
         <input type="password" value={confirm} onInput={setConfirm} placeholder="password" />
         <div className="buttons">
-          <button type="button" onClick={sendNewUser}>Send</button>
+          <button type="button" onClick={sendNewUser} disabled={!requiriedFields}>Send</button>
           <Link to="/login">
             <button type="button">Log In</button>
           </Link>
