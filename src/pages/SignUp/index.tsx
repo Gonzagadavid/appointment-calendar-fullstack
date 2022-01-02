@@ -19,7 +19,7 @@ function SignUp() {
       <div className="form">
         <input type="text" value={name} onInput={setName} placeholder="Name" />
         <input type="text" value={lastname} onInput={setLastname} placeholder="Lastname" />
-        <input type="email" value={email} onInput={setEmail} placeholder="email@server.com" />
+        <input type="email" value={email} onInput={setEmail} placeholder="example@email.com" />
         <input type="password" value={password} onInput={setPassword} placeholder="password" />
         <input type="password" value={confirm} onInput={setConfirm} placeholder="password" />
         <div className="buttons">

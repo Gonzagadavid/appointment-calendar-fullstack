@@ -34,6 +34,9 @@ export type UserState = {
   setPassword: (_event: FormEvent<Element>)=> void,
   setConfirm: (_event: FormEvent<Element>)=> void,
   sendNewUser: () => void
+  keepConnect: boolean,
+  setKeepConnect: Dispatch<SetStateAction<boolean>>,
+  sendLogin: () => void,
 };
 
 export type User = {

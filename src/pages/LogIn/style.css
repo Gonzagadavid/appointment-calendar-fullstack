@@ -1,0 +1,33 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
+
+.Login .form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 80%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Login .form input {
+  font-size: 30px;
+}
+
+
+.Login .form .buttons {
+ width: 100%;
+}
+
+
+.Login .form .buttons button {
+  width: 15%;
+  margin: 10px;
+  font-size: 20px;
+}

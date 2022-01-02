@@ -2,8 +2,8 @@ import React from 'react';
 import useStorage from '../../hooks/useStorage';
 
 function Greet() {
-  const { user } = useStorage();
-  const greetText = `Welcome, ${user}!`;
+  const { userName } = useStorage('calendar');
+  const greetText = `Welcome, ${userName}!`;
 
   return (
     <p>{greetText}</p>
