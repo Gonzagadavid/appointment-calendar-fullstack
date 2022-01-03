@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import TaskContext from '../../contexts/tasks/TaskContext';
 import { TaskState } from '../../types';
 import ConditionComponent from '../ConditionComponent';
+import TaskItemList from '../TaskItemList';
 
 function TaskList() {
   const taskContext = useContext(TaskContext);
@@ -11,17 +12,11 @@ function TaskList() {
     <>
       <ConditionComponent condition={checkList} className="TaskList">
         <ul>
-          { tasksSelected.map(({ title, date, id }) => {
-            const dateTask = new Date(date);
-            const hour = dateTask.getHours();
-            const minutes = dateTask.getMinutes();
-            return (
-              <li key={id} id={id}>
-                <span>{title}</span>
-                <span>{`${hour}:${minutes}`}</span>
-              </li>
-            );
-          })}
+          { tasksSelected.map(({ title, date, id }) => (
+            <li key={id}>
+              <TaskItemList title={title} date={date} id={id} />
+            </li>
+          ))}
         </ul>
       </ConditionComponent>
       <ConditionComponent condition={!checkList} className="TaskList">

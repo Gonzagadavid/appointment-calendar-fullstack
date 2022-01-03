@@ -8,6 +8,8 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import UserProvider from './contexts/user/UserProvider';
 import Message from './components/Menssage';
+import TaskProvider from './contexts/tasks/TaskProvider';
+import TaskDetails from './pages/TaskDetails';
 
 function App() {
   return (
@@ -15,14 +17,15 @@ function App() {
       <AppProvider>
         <Message />
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <TaskProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/task-details" element={<TaskDetails />} />
+          </Routes>
+        </TaskProvider>
         <UserProvider>
           <Routes>
             <Route path="/login" element={<LogIn />} />
-          </Routes>
-          <Routes>
             <Route path="/signup" element={<SignUp />} />
           </Routes>
         </UserProvider>

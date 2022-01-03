@@ -45,9 +45,22 @@ export type TaskItem = {
   date: string,
 }
 
+export type TaskDetailsType = {
+  _id: string,
+  userId: string,
+  email: string,
+  title: string,
+  description: string,
+  status: string,
+  date: string,
+  updated: string,
+}
+
 export type TaskState = {
   allTasks: TaskItem[],
   tasksSelected: TaskItem[],
+  setIdSelected: Dispatch<SetStateAction<string>>,
+  taskDetails: TaskDetailsType,
 }
 
 export type User = {
