@@ -40,7 +40,7 @@ export type Decode = {
   user: UserInfo
 };
 
-export type TaskProcess = { id: ObjectId, title: string, date: Date }
+export type TaskProcess = { id: ObjectId, title: string, date: Date, status: string }
 
 declare module 'express' {
   interface Request {

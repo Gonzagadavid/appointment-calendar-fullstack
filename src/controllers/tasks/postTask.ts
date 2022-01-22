@@ -5,7 +5,6 @@ import { Handler } from '../../types';
 const postTask: Handler = async (req, res, next) => {
   try {
     const { user, body } = req;
-
     const insertedTask = await insertTask({ ...user, ...body });
 
     res.status(CREATED).json(insertedTask);

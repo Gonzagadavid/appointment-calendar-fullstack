@@ -4,7 +4,7 @@ import { UNAUTHORIZED_TOKEN, MISSING_AUTH_TOKEN, INTERNAL_ERROR } from '../error
 import { Decode, Handler } from '../types';
 import { ERROR } from '../constants/strings';
 
-const authToken: Handler = (req, res, next) => {
+const authToken: Handler = (req, _res, next) => {
   const { authorization: token } = req.headers;
 
   dotenv.config();
@@ -21,7 +21,6 @@ const authToken: Handler = (req, res, next) => {
     if (!user) return next(MISSING_AUTH_TOKEN);
 
     req.user = user;
-
     return next();
   } catch (err) {
     return next(UNAUTHORIZED_TOKEN);
