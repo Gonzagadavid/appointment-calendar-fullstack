@@ -56,11 +56,23 @@ export type TaskDetailsType = {
   updated: string,
 }
 
+export type TaskForm = {
+  title: string,
+  description: string,
+  status: string,
+  date: string,
+}
+
 export type TaskState = {
   allTasks: TaskItem[],
   tasksSelected: TaskItem[],
   setIdSelected: Dispatch<SetStateAction<string>>,
   taskDetails: TaskDetailsType,
+  postNewTask: (_task: TaskForm) => void,
+  renderTaskDetails: boolean,
+  setRenderTaskDetails: Dispatch<SetStateAction<boolean>>,
+  renderTaskForm: boolean,
+  setRenderTaskForm: Dispatch<SetStateAction<boolean>>,
 }
 
 export type User = {

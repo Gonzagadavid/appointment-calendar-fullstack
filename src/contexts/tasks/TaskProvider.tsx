@@ -1,27 +1,29 @@
 import React, {
   PropsWithChildren, ReactNode, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
 import filterSelectedTasks from '../../functions/filterSelectedTasks';
 import useStorage from '../../hooks/useStorage';
 import getAllTasks from '../../services/backend/tasks/getAllTasks';
 import getTask from '../../services/backend/tasks/getTask';
-import { DefaultState, TaskItem } from '../../types';
+import { DefaultState, TaskForm, TaskItem } from '../../types';
 import AppContext from '../app/AppContext';
 import TaskContext from './TaskContext';
+import { CREATED } from '../../constants/status';
+import postTask from '../../services/backend/tasks/postTask';
 
 function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
   const appContext = useContext(AppContext);
   const {
-    connected, selectedDay, selectedMonth, selectedYear,
+    connected, selectedDay, selectedMonth, selectedYear, setMessage,
   } = appContext as DefaultState;
   const initialList: TaskItem[] = [];
   const [allTasks, setAllTasks] = useState([]);
   const [tasksSelected, setTasksSelected] = useState(initialList);
   const [idSelected, setIdSelected] = useState('');
   const [taskDetails, setTaskdetails] = useState({});
-  const navigate = useNavigate();
+  const [renderTaskDetails, setRenderTaskDetails] = useState(false);
+  const [renderTaskForm, setRenderTaskForm] = useState(false);
 
   const getTasks = useCallback(async () => {
     if (!connected) return null;
@@ -35,24 +37,40 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     const { token } = useStorage('calendar');
     const task = await getTask(token, idSelected);
     setTaskdetails(task);
-    return navigate('/task-details');
+    return setRenderTaskDetails(true);
   }, [idSelected]);
+
+  const selectDate = useCallback(() => {
+    const selectedDate = { selectedDay, selectedMonth, selectedYear };
+    const tasks = filterSelectedTasks(selectedDate, allTasks);
+    setTasksSelected(tasks);
+  }, [selectedDay, selectedMonth, selectedYear, allTasks]);
+
+  const postNewTask = async (task: TaskForm) => {
+    const { token } = useStorage('calendar');
+    const { status, _id, message } = await postTask(task, token);
+    if (status !== CREATED) return setMessage(message);
+    setIdSelected(_id);
+    await getTasks();
+    return setRenderTaskForm(false);
+  };
 
   useEffect(() => { getTasks(); }, [getTasks]);
 
   useEffect(() => { getTaskById(); }, [getTaskById]);
 
-  useEffect(() => {
-    const selectedDate = { selectedDay, selectedMonth, selectedYear };
-    const tasks = filterSelectedTasks(selectedDate, allTasks);
-    setTasksSelected(tasks);
-  }, [selectedDay, selectedMonth, selectedYear, allTasks]);
+  useEffect(() => selectDate(), [selectDate]);
 
   const context = {
     allTasks,
     tasksSelected,
     setIdSelected,
     taskDetails,
+    postNewTask,
+    renderTaskDetails,
+    setRenderTaskDetails,
+    renderTaskForm,
+    setRenderTaskForm,
   };
 
   const contextMemo = useMemo(() => context, [context]);

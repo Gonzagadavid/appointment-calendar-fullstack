@@ -9,7 +9,8 @@ import SignUp from './pages/SignUp';
 import UserProvider from './contexts/user/UserProvider';
 import Message from './components/Menssage';
 import TaskProvider from './contexts/tasks/TaskProvider';
-import TaskDetails from './pages/TaskDetails';
+import TaskDetails from './components/TaskDetails';
+import TaskForm from './components/TaskForm';
 
 function App() {
   return (
@@ -20,9 +21,9 @@ function App() {
         <TaskProvider>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/task-details" element={<TaskDetails />} />
-            <Route path="/task-form" element={} />
           </Routes>
+          <TaskDetails />
+          <TaskForm />
         </TaskProvider>
         <UserProvider>
           <Routes>

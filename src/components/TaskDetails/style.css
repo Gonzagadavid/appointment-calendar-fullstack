@@ -1,0 +1,14 @@
+.TaskDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.detailsContainer {
+  width: 50%;
+  height: 50%;
+  background-color: cadetblue;
+}
