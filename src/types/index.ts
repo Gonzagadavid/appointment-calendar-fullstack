@@ -31,8 +31,8 @@ export type UserState = {
   setName: (_event: FormEvent<Element>) => void,
   setLastname: (_event: FormEvent<Element>) => void,
   setEmail: (_event: FormEvent<Element>) => void,
-  setPassword: (_event: FormEvent<Element>)=> void,
-  setConfirm: (_event: FormEvent<Element>)=> void,
+  setPassword: (_event: FormEvent<Element>) => void,
+  setConfirm: (_event: FormEvent<Element>) => void,
   sendNewUser: () => void
   keepConnect: boolean,
   setKeepConnect: Dispatch<SetStateAction<boolean>>,
@@ -43,6 +43,7 @@ export type TaskItem = {
   id: string,
   title: string,
   date: string,
+  status: string
 }
 
 export type TaskDetailsType = {
@@ -66,6 +67,7 @@ export type TaskForm = {
 export type TaskState = {
   allTasks: TaskItem[],
   tasksSelected: TaskItem[],
+  idSelected: string,
   setIdSelected: Dispatch<SetStateAction<string>>,
   taskDetails: TaskDetailsType,
   postNewTask: (_task: TaskForm) => void,
@@ -73,6 +75,18 @@ export type TaskState = {
   setRenderTaskDetails: Dispatch<SetStateAction<boolean>>,
   renderTaskForm: boolean,
   setRenderTaskForm: Dispatch<SetStateAction<boolean>>,
+  title: string,
+  description: string,
+  status: string,
+  setTitle: (_event: FormEvent<Element>) => void,
+  setDescription: (_event: FormEvent<Element>)=> void,
+  setStatus: (_event: FormEvent<Element>)=> void,
+  time: string,
+  setTime: (_event: FormEvent<Element>)=> void,
+  editTask: () => void,
+  edit: boolean,
+  updateTask: (_task: TaskForm, _id: string) => void,
+  removeTask: () => void,
 }
 
 export type User = {

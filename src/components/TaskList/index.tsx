@@ -12,9 +12,11 @@ function TaskList() {
     <>
       <ConditionComponent condition={checkList} className="TaskList">
         <ul>
-          { tasksSelected.map(({ title, date, id }) => (
+          { tasksSelected.map(({
+            title, date, id, status,
+          }) => (
             <li key={id}>
-              <TaskItemList title={title} date={date} id={id} />
+              <TaskItemList title={title} date={date} id={id} status={status} />
             </li>
           ))}
         </ul>

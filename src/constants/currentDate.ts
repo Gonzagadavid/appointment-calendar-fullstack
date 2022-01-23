@@ -10,6 +10,8 @@ const monthCrr = monthNames[monthPosition];
 
 const dayCrr = date.getDate();
 
+const timeCrr = date.toLocaleTimeString([], { timeStyle: 'short' });
+
 export {
-  date, yearCrr, monthCrr, dayCrr,
+  date, yearCrr, monthCrr, dayCrr, timeCrr,
 };

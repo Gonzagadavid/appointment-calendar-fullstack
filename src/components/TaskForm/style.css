@@ -10,5 +10,9 @@
 .formContainer {
   width: 50%;
   height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
   background-color: cadetblue;
 }

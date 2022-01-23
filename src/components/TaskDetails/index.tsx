@@ -9,7 +9,8 @@ import './style.css';
 function TaskDetails() {
   const taskContext = useContext(TaskContext);
   const {
-    taskDetails, setRenderTaskDetails, renderTaskDetails, setIdSelected,
+    taskDetails, setRenderTaskDetails, renderTaskDetails, setIdSelected, editTask,
+    removeTask,
   } = taskContext as TaskState;
   const {
     title, description, date, status, updated,
@@ -49,6 +50,8 @@ function TaskDetails() {
           {`${updateDate.month} ${updateDate.day}, ${updateDate.year}  ${updateDate.hour}:${updateDate.minutes}`}
         </p>
         <button type="button" onClick={renderDetails}>Close</button>
+        <button type="button" onClick={editTask}>Edit</button>
+        <button type="button" onClick={removeTask}>Remove</button>
       </div>
     </ConditionComponent>
   );
