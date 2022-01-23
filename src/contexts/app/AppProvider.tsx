@@ -10,6 +10,8 @@ import checkLogin from '../../functions/checkLogin';
 function AppProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
   const login = checkLogin();
+  const [renderLogin, setRenderLogin] = useState(false);
+  const [renderSignup, setRenderSignup] = useState(false);
   const [message, setMessage] = useState('');
   const [connected, setconnected] = useState(login);
   const [year, month, setDate] = useTwoState([yearCrr, monthCrr]);
@@ -29,6 +31,10 @@ function AppProvider(props: PropsWithChildren<ReactNode>) {
     setconnected,
     message,
     setMessage,
+    renderLogin,
+    renderSignup,
+    setRenderLogin,
+    setRenderSignup,
   };
 
   const contextMemo = useMemo(() => context, [context]);

@@ -1,16 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import AppContext from '../../contexts/app/AppContext';
+import { DefaultState } from '../../types';
 import './style.css';
 
 function LoginAcess() {
+  const appContext = useContext(AppContext);
+  const { setRenderLogin, setRenderSignup } = appContext as DefaultState;
   return (
     <div className="LoginAcess">
-      <Link to="/login">
-        <button type="button">Log In</button>
-      </Link>
-      <Link to="/signup">
-        <button type="button">Sign Up</button>
-      </Link>
+      <button type="button" onClick={() => setRenderLogin(true)}>Log In</button>
+      <button type="button" onClick={() => setRenderSignup(true)}>Sign Up</button>
     </div>
   );
 }

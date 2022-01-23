@@ -102,7 +102,7 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     const { token } = useStorage(CALENDAR);
     await deleteTask(idSelected, token);
     setRenderTaskDetails(false);
-    setIdSelected('');
+    setIdSelected(EMPTY);
     await getTasks();
   };
 

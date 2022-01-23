@@ -1,9 +1,18 @@
+.LoginContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+}
+
 .Login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 90%;
   background-color: blue;
 }
 
@@ -27,7 +36,7 @@
 
 
 .Login .form .buttons button {
-  width: 15%;
+  width: 25%;
   margin: 10px;
   font-size: 20px;
 }

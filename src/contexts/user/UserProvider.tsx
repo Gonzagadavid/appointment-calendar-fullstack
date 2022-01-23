@@ -1,9 +1,9 @@
 import React, {
   PropsWithChildren, ReactNode, useContext, useMemo, useState,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { CONNECT_FAIL, INVALID_EMAIL, PASSWORD_NOT_CONFIRMED } from '../../constants/messages';
 import { CREATED } from '../../constants/status';
+import { CALENDAR, EMPTY } from '../../constants/strings';
 import checkEmail from '../../functions/checkEmail';
 import useInput from '../../hooks/useInput';
 import login from '../../services/backend/user/login';
@@ -17,14 +17,15 @@ import UserContext from './UserContext';
 function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
   const appContext = useContext(AppContext);
-  const { setMessage, setconnected } = appContext as DefaultState;
-  const { state: name, setState: setName } = useInput('');
-  const { state: lastname, setState: setLastname } = useInput('');
-  const { state: email, setState: setEmail } = useInput('');
-  const { state: password, setState: setPassword } = useInput('');
-  const { state: confirm, setState: setConfirm } = useInput('');
+  const {
+    setMessage, setconnected, setRenderLogin, setRenderSignup,
+  } = appContext as DefaultState;
   const [keepConnect, setKeepConnect] = useState(false);
-  const navigate = useNavigate();
+  const { state: name, setState: setName } = useInput(EMPTY);
+  const { state: lastname, setState: setLastname } = useInput(EMPTY);
+  const { state: email, setState: setEmail } = useInput(EMPTY);
+  const { state: password, setState: setPassword } = useInput(EMPTY);
+  const { state: confirm, setState: setConfirm } = useInput(EMPTY);
 
   const sendNewUser = async () => {
     if (!checkEmail(email)) return setMessage(INVALID_EMAIL);
@@ -34,8 +35,8 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
       name, lastname, email, password,
     });
     setMessage(message);
-    if (status === CREATED) return navigate('/');
-    return navigate('/signup');
+    if (status !== CREATED) return null;
+    return setRenderSignup(false);
   };
 
   const sendLogin = async () => {
@@ -43,9 +44,9 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
     const response = await login({ email, password });
     if (response.message) return (CONNECT_FAIL);
     const callback = keepConnect ? saveLocalStorage : saveSessinStorage;
-    callback('calendar', response);
+    callback(CALENDAR, response);
     setconnected(true);
-    return navigate('/');
+    return setRenderLogin(false);
   };
 
   const context = {

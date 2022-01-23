@@ -16,6 +16,10 @@ export type DefaultState = {
   setconnected: Dispatch<SetStateAction<boolean>>,
   message: string,
   setMessage: Dispatch<SetStateAction<string>>,
+  renderLogin: boolean,
+  renderSignup: boolean,
+  setRenderLogin: Dispatch<SetStateAction<boolean>>,
+  setRenderSignup: Dispatch<SetStateAction<boolean>>,
 }
 
 export type CalendarState = {

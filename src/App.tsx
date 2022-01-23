@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import AppProvider from './contexts/app/AppProvider';
 import Header from './components/Header';
-import LogIn from './pages/LogIn';
-import SignUp from './pages/SignUp';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
 import UserProvider from './contexts/user/UserProvider';
 import Message from './components/Menssage';
 import TaskProvider from './contexts/tasks/TaskProvider';
@@ -19,17 +18,13 @@ function App() {
         <Message />
         <Header />
         <TaskProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <Home />
           <TaskDetails />
           <TaskForm />
         </TaskProvider>
         <UserProvider>
-          <Routes>
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-          </Routes>
+          <LogIn />
+          <SignUp />
         </UserProvider>
       </AppProvider>
     </div>
