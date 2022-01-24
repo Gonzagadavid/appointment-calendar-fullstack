@@ -5,6 +5,7 @@ import {
   NOT_FOUND,
   UNAUTHORIZED,
   UNPROCESSABLE_ENTITY,
+  BAD_REQUEST,
 } from '../constants/status';
 
 export const INTERNAL_ERROR = {
@@ -55,4 +56,14 @@ export const NOT_FOUND_TASK = {
 export const UNAUTHORIZED_USER = {
   status: UNAUTHORIZED,
   message: 'unauthorized user',
+};
+
+export const EMAIL_NOT_ACCESSIBLE = {
+  status: BAD_REQUEST,
+  message: 'email not accessible',
+};
+
+export const UNREGISTERED_EMAIL = {
+  status: NOT_FOUND,
+  message: 'unregistered email',
 };

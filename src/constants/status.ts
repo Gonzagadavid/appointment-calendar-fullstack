@@ -11,6 +11,7 @@ const {
   NOT_FOUND,
   CREATED,
   ACCEPTED,
+  BAD_REQUEST,
 } = StatusCodes;
 
 export {
@@ -24,4 +25,5 @@ export {
   NOT_FOUND,
   CREATED,
   ACCEPTED,
+  BAD_REQUEST,
 };
