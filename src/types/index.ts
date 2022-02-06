@@ -68,6 +68,13 @@ export type TaskForm = {
   date: string,
 }
 
+export type TaskInputForm = {
+  title: string,
+  description: string,
+  status: string,
+  time: string,
+}
+
 export type TaskState = {
   allTasks: TaskItem[],
   tasksSelected: TaskItem[],
@@ -91,6 +98,8 @@ export type TaskState = {
   edit: boolean,
   updateTask: (_task: TaskForm, _id: string) => void,
   removeTask: () => void,
+  taskForm: TaskInputForm,
+  setTaskForm: (_event: FormEvent<Element>)=> void,
 }
 
 export type User = {

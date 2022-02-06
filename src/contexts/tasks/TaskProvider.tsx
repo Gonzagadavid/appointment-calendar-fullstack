@@ -2,21 +2,18 @@ import React, {
   PropsWithChildren, ReactNode, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
 import filterSelectedTasks from '../../functions/filterSelectedTasks';
-import useStorage from '../../hooks/useStorage';
-import getAllTasks from '../../services/backend/tasks/getAllTasks';
-import getTask from '../../services/backend/tasks/getTask';
+import { useStorage, useFormInput } from '../../hooks';
+import {
+  getAllTasks, getTask, putTask, deleteTask, postTask,
+} from '../../services/backend/tasks';
 import {
   DefaultState, TaskDetailsType, TaskForm, TaskItem,
 } from '../../types';
 import AppContext from '../app/AppContext';
 import TaskContext from './TaskContext';
-import { CREATED } from '../../constants/status';
-import postTask from '../../services/backend/tasks/postTask';
+import { CREATED, NOT_CONTENT } from '../../constants/status';
 import { CALENDAR, EMPTY } from '../../constants/strings';
-import useInput from '../../hooks/useInput';
 import { timeCrr } from '../../constants/currentDate';
-import putTask from '../../services/backend/tasks/putTask';
-import deleteTask from '../../services/backend/tasks/deleteTask';
 
 function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
@@ -32,10 +29,9 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const [edit, setEdit] = useState(false);
   const [renderTaskDetails, setRenderTaskDetails] = useState(false);
   const [renderTaskForm, setRenderTaskForm] = useState(false);
-  const { state: title, setState: setTitle, resetState: resetTitle } = useInput(EMPTY);
-  const { state: description, setState: setDescription, resetState: resetDesc } = useInput(EMPTY);
-  const { state: time, setState: setTime, resetState: resetTime } = useInput(timeCrr);
-  const { state: status, setState: setStatus, resetState: resetStatus } = useInput('Programmed');
+  const { state: taskForm, setState: setTaskForm, resetState: resetTaskForm } = useFormInput({
+    title: EMPTY, description: EMPTY, time: timeCrr, status: 'Programmed',
+  });
 
   const getTasks = useCallback(async () => {
     if (!connected) return null;
@@ -63,10 +59,9 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
       title: titleDetails, description: descripDetails, date: dateDetails, status: statusDetails,
     } = taskDetails as TaskDetailsType;
     const timeDetails = new Date(dateDetails).toLocaleTimeString([], { timeStyle: 'short' });
-    resetTitle(titleDetails);
-    resetDesc(descripDetails);
-    resetTime(timeDetails);
-    resetStatus(statusDetails);
+    resetTaskForm({
+      title: titleDetails, description: descripDetails, time: timeDetails, status: statusDetails,
+    });
     setRenderTaskDetails(false);
     setRenderTaskForm(true);
     setEdit(true);
@@ -77,23 +72,19 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     const { status: respStatus, _id, message } = await postTask(task, token);
     if (respStatus !== CREATED) return setMessage(message);
     setIdSelected(_id);
-    resetTitle();
-    resetDesc();
-    resetTime();
-    resetStatus();
+    resetTaskForm();
     await getTasks();
+    setEdit(false);
     return setRenderTaskForm(false);
   };
 
   const updateTask = async (task: TaskForm, id: string) => {
     const { token } = useStorage(CALENDAR);
-    const { status: respStatus, _id, message } = await putTask(task, token, id);
-    if (respStatus !== CREATED) return setMessage(message);
-    setIdSelected(_id);
-    resetTitle();
-    resetDesc();
-    resetTime();
-    resetStatus();
+    const { status: respStatus, message } = await putTask(task, token, id);
+    if (respStatus !== NOT_CONTENT) setMessage(message);
+    setIdSelected(EMPTY);
+    resetTaskForm();
+    setEdit(false);
     await getTasks();
     return setRenderTaskForm(false);
   };
@@ -120,19 +111,13 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     setRenderTaskDetails,
     renderTaskForm,
     setRenderTaskForm,
-    title,
-    description,
-    status,
-    setTitle,
-    setDescription,
-    setStatus,
-    time,
-    setTime,
     editTask,
     edit,
     idSelected,
     updateTask,
     removeTask,
+    taskForm,
+    setTaskForm,
   };
 
   const contextMemo = useMemo(() => context, [context]);
