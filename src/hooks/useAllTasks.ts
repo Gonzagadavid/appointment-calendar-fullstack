@@ -1,0 +1,20 @@
+import { useCallback, useEffect, useState } from 'react';
+import { useStorage } from '.';
+import { CALENDAR } from '../constants/strings';
+import { getAllTasks } from '../services/backend/tasks';
+
+const useAllTasks = (connected: boolean) => {
+  const [allTasks, setAllTasks] = useState([]);
+  const getTasks = useCallback(async () => {
+    if (!connected) return null;
+    const { token } = useStorage(CALENDAR);
+    const tasks = await getAllTasks(token);
+    return setAllTasks(tasks);
+  }, [connected]);
+
+  useEffect(() => { getTasks(); }, [getTasks]);
+
+  return { allTasks, getTasks };
+};
+
+export default useAllTasks;

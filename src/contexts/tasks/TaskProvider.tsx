@@ -4,7 +4,7 @@ import React, {
 import filterSelectedTasks from '../../functions/filterSelectedTasks';
 import { useStorage, useFormInput } from '../../hooks';
 import {
-  getAllTasks, getTask, putTask, deleteTask, postTask,
+  getTask, putTask, deleteTask, postTask,
 } from '../../services/backend/tasks';
 import {
   DefaultState, TaskDetailsType, TaskForm, TaskItem,
@@ -14,6 +14,7 @@ import TaskContext from './TaskContext';
 import { CREATED, NOT_CONTENT } from '../../constants/status';
 import { CALENDAR, EMPTY } from '../../constants/strings';
 import { timeCrr } from '../../constants/currentDate';
+import useAllTasks from '../../hooks/useAllTasks';
 
 function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
@@ -22,7 +23,7 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     connected, selectedDay, selectedMonth, selectedYear, setMessage,
   } = appContext as DefaultState;
   const initialList: TaskItem[] = [];
-  const [allTasks, setAllTasks] = useState([]);
+  const { allTasks, getTasks } = useAllTasks(connected);
   const [tasksSelected, setTasksSelected] = useState(initialList);
   const [idSelected, setIdSelected] = useState(EMPTY);
   const [taskDetails, setTaskdetails] = useState({});
@@ -32,13 +33,6 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const { state: taskForm, setState: setTaskForm, resetState: resetTaskForm } = useFormInput({
     title: EMPTY, description: EMPTY, time: timeCrr, status: 'Programmed',
   });
-
-  const getTasks = useCallback(async () => {
-    if (!connected) return null;
-    const { token } = useStorage(CALENDAR);
-    const tasks = await getAllTasks(token);
-    return setAllTasks(tasks);
-  }, [connected]);
 
   const getTaskById = useCallback(async () => {
     if (!idSelected) return null;
@@ -97,7 +91,6 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     await getTasks();
   };
 
-  useEffect(() => { getTasks(); }, [getTasks]);
   useEffect(() => { getTaskById(); }, [getTaskById]);
   useEffect(() => selectDate(), [selectDate]);
 
