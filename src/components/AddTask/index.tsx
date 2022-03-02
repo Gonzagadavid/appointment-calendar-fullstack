@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import TaskContext from '../../contexts/tasks/TaskContext';
-import { TaskState } from '../../types';
+import AppContext from '../../contexts/app/AppContext';
+import { DefaultState } from '../../types';
 
 function AddTask() {
-  const taskContext = useContext(TaskContext);
-  const { setRenderTaskForm } = taskContext as TaskState;
+  const appContext = useContext(AppContext);
+  const { setRenderTaskForm } = appContext as DefaultState;
   return (
     <button type="button" onClick={() => setRenderTaskForm(true)}>
       Add Task

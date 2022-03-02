@@ -15,6 +15,8 @@ function AppProvider(props: PropsWithChildren<ReactNode>) {
   const [message, setMessage] = useState('');
   const [connected, setconnected] = useState(login);
   const [year, month, setDate] = useTwoState([yearCrr, monthCrr]);
+  const [renderTaskDetails, setRenderTaskDetails] = useState(false);
+  const [renderTaskForm, setRenderTaskForm] = useState(false);
   const [
     selectedYear, selectedMonth, selectedDay, setSelectedDate,
   ] = useThreeState([yearCrr, monthCrr, dayCrr]);
@@ -35,6 +37,10 @@ function AppProvider(props: PropsWithChildren<ReactNode>) {
     renderSignup,
     setRenderLogin,
     setRenderSignup,
+    renderTaskDetails,
+    setRenderTaskDetails,
+    renderTaskForm,
+    setRenderTaskForm,
   };
 
   const contextMemo = useMemo(() => context, [context]);

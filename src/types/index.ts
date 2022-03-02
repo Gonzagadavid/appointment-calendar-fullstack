@@ -20,6 +20,10 @@ export type DefaultState = {
   renderSignup: boolean,
   setRenderLogin: Dispatch<SetStateAction<boolean>>,
   setRenderSignup: Dispatch<SetStateAction<boolean>>,
+  renderTaskDetails: boolean,
+  setRenderTaskDetails: Dispatch<SetStateAction<boolean>>,
+  renderTaskForm: boolean,
+  setRenderTaskForm: Dispatch<SetStateAction<boolean>>,
 }
 
 export type CalendarState = {
@@ -82,10 +86,6 @@ export type TaskState = {
   setIdSelected: Dispatch<SetStateAction<string>>,
   taskDetails: TaskDetailsType,
   postNewTask: (_task: TaskForm) => void,
-  renderTaskDetails: boolean,
-  setRenderTaskDetails: Dispatch<SetStateAction<boolean>>,
-  renderTaskForm: boolean,
-  setRenderTaskForm: Dispatch<SetStateAction<boolean>>,
   title: string,
   description: string,
   status: string,

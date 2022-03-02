@@ -9,10 +9,11 @@ import './style.css';
 function TaskForm() {
   const taskContext = useContext(TaskContext);
   const appContext = useContext(AppContext);
-  const { selectedDay, selectedMonth, selectedYear } = appContext as DefaultState;
   const {
-    postNewTask, renderTaskForm, setRenderTaskForm, edit, idSelected,
-    updateTask, taskForm, setTaskForm,
+    selectedDay, selectedMonth, selectedYear, renderTaskForm, setRenderTaskForm,
+  } = appContext as DefaultState;
+  const {
+    postNewTask, edit, idSelected, updateTask, taskForm, setTaskForm,
   } = taskContext as TaskState;
   const {
     title, time, description, status,

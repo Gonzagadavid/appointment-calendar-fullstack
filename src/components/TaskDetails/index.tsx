@@ -3,14 +3,16 @@ import ConditionComponent from '../ConditionComponent';
 import { EMPTY } from '../../constants/strings';
 import TaskContext from '../../contexts/tasks/TaskContext';
 import getDate from '../../functions/getDate';
-import { TaskState } from '../../types';
+import { DefaultState, TaskState } from '../../types';
 import './style.css';
+import AppContext from '../../contexts/app/AppContext';
 
 function TaskDetails() {
+  const appContext = useContext(AppContext);
+  const { setRenderTaskDetails, renderTaskDetails } = appContext as DefaultState;
   const taskContext = useContext(TaskContext);
   const {
-    taskDetails, setRenderTaskDetails, renderTaskDetails, setIdSelected, editTask,
-    removeTask,
+    taskDetails, setIdSelected, editTask, removeTask,
   } = taskContext as TaskState;
   const {
     title, description, date, status, updated,
