@@ -1,19 +1,14 @@
 import React, {
   PropsWithChildren, ReactNode, useCallback, useContext, useEffect, useMemo, useState,
 } from 'react';
-import filterSelectedTasks from '../../functions/filterSelectedTasks';
-import {
-  useStorage, useFormInput, useAllTasks, useTask,
-} from '../../hooks';
-import { putTask, deleteTask, postTask } from '../../services/backend/tasks';
 import {
   DefaultState, TaskDetailsType, TaskForm, TaskItem,
 } from '../../types';
-import AppContext from '../app/AppContext';
-import TaskContext from './TaskContext';
-import { CREATED, NOT_CONTENT } from '../../constants/status';
-import { CALENDAR, EMPTY } from '../../constants/strings';
-import { timeCrr } from '../../constants/currentDate';
+
+import {
+  useStorage, useFormInput, useAllTasks, useTask, putTask, deleteTask, postTask,
+  AppContext, CREATED, NOT_CONTENT, CALENDAR, EMPTY, timeCrr, TaskContext, filterSelectedTasks,
+} from './imports';
 
 function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
@@ -30,14 +25,6 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
   const { state: taskForm, setState: setTaskForm, resetState: resetTaskForm } = useFormInput({
     title: EMPTY, description: EMPTY, time: timeCrr, status: 'Programmed',
   });
-
-  // const getTaskById = useCallback(async () => {
-  //   if (!idSelected) return null;
-  //   const { token } = useStorage(CALENDAR);
-  //   const task = await getTask(token, idSelected);
-  //   setTaskdetails(task);
-  //   return setRenderTaskDetails(true);
-  // }, [idSelected]);
 
   const selectDate = useCallback(() => {
     const selectedDate = { selectedDay, selectedMonth, selectedYear };
@@ -88,7 +75,6 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     await getTasks();
   };
 
-  // useEffect(() => { getTaskById(); }, [getTaskById]);
   useEffect(() => selectDate(), [selectDate]);
 
   const context = {
