@@ -1,4 +1,4 @@
-import SIX from '../constants/numbers';
+import { SIX } from '../constants/numbers';
 import { PASSWORD_LENGTH_REQUIRED, REQUIRED_FIELDS } from '../errors';
 import { Handler } from '../types';
 
