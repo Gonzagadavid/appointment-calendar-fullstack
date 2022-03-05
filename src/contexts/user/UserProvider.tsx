@@ -1,18 +1,12 @@
 import React, {
   PropsWithChildren, ReactNode, useContext, useMemo, useState,
 } from 'react';
-import { CONNECT_FAIL, INVALID_EMAIL, PASSWORD_NOT_CONFIRMED } from '../../constants/messages';
-import { CREATED } from '../../constants/status';
-import { CALENDAR, EMPTY } from '../../constants/strings';
-import checkEmail from '../../functions/checkEmail';
-import useInput from '../../hooks/useInput';
-import login from '../../services/backend/user/login';
-import postUser from '../../services/backend/user/postUser';
-import saveLocalStorage from '../../services/storage/saveLocalStorage';
-import saveSessinStorage from '../../services/storage/saveSessionStorage';
+import { useCode } from '../../hooks';
 import { DefaultState } from '../../types';
-import AppContext from '../app/AppContext';
-import UserContext from './UserContext';
+import {
+  CONNECT_FAIL, INVALID_EMAIL, PASSWORD_NOT_CONFIRMED, CREATED, CALENDAR, EMPTY, checkEmail,
+  useInput, login, postUser, saveLocalStorage, saveSessinStorage, AppContext, UserContext,
+} from './imports';
 
 function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
@@ -26,6 +20,11 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { state: email, setState: setEmail } = useInput(EMPTY);
   const { state: password, setState: setPassword } = useInput(EMPTY);
   const { state: confirm, setState: setConfirm } = useInput(EMPTY);
+  const { setCode, setCodeInput, auth } = useCode();
+
+  const authUser = () => {
+
+  };
 
   const sendNewUser = async () => {
     if (!checkEmail(email)) return setMessage(INVALID_EMAIL);
@@ -50,20 +49,8 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   };
 
   const context = {
-    name,
-    lastname,
-    email,
-    password,
-    confirm,
-    setName,
-    setLastname,
-    setEmail,
-    setPassword,
-    setConfirm,
-    sendNewUser,
-    keepConnect,
-    setKeepConnect,
-    sendLogin,
+    name, lastname, email, password, confirm, setName, setLastname, setEmail, setPassword,
+    setConfirm, sendNewUser, keepConnect, setKeepConnect, sendLogin,
   };
 
   const contextMemo = useMemo(() => context, [context]);

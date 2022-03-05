@@ -1,11 +1,9 @@
 import React, {
   PropsWithChildren, ReactNode, useMemo, useState,
 } from 'react';
-import AppContext from './AppContext';
-import { dayCrr, monthCrr, yearCrr } from '../../constants/currentDate';
-import useTwoState from '../../hooks/useTwoState';
-import useThreeState from '../../hooks/useThreeState';
-import checkLogin from '../../functions/checkLogin';
+import {
+  AppContext, dayCrr, monthCrr, yearCrr, useTwoState, useThreeState, checkLogin,
+} from './imports';
 
 function AppProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
@@ -22,25 +20,9 @@ function AppProvider(props: PropsWithChildren<ReactNode>) {
   ] = useThreeState([yearCrr, monthCrr, dayCrr]);
 
   const context = {
-    year,
-    month,
-    setDate,
-    selectedDay,
-    selectedMonth,
-    selectedYear,
-    setSelectedDate,
-    connected,
-    setconnected,
-    message,
-    setMessage,
-    renderLogin,
-    renderSignup,
-    setRenderLogin,
-    setRenderSignup,
-    renderTaskDetails,
-    setRenderTaskDetails,
-    renderTaskForm,
-    setRenderTaskForm,
+    year, month, setDate, selectedDay, selectedMonth, selectedYear, setSelectedDate, connected,
+    setconnected, message, setMessage, renderLogin, renderSignup, setRenderLogin, setRenderSignup,
+    renderTaskDetails, setRenderTaskDetails, renderTaskForm, setRenderTaskForm,
   };
 
   const contextMemo = useMemo(() => context, [context]);
