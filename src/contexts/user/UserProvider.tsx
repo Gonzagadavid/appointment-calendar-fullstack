@@ -1,11 +1,11 @@
 import React, {
   PropsWithChildren, ReactNode, useContext, useMemo, useState,
 } from 'react';
-import { useCode } from '../../hooks';
 import { DefaultState } from '../../types';
 import {
-  CONNECT_FAIL, INVALID_EMAIL, PASSWORD_NOT_CONFIRMED, CREATED, CALENDAR, EMPTY, checkEmail,
+  CONNECT_FAIL, INVALID_EMAIL, PASSWORD_NOT_CONFIRMED, CREATED, CALENDAR, EMPTY, ACCEPTED,
   useInput, login, postUser, saveLocalStorage, saveSessinStorage, AppContext, UserContext,
+  useCode, checkEmail, emailCode,
 } from './imports';
 
 function UserProvider(props: PropsWithChildren<ReactNode>) {
@@ -22,10 +22,6 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { state: confirm, setState: setConfirm } = useInput(EMPTY);
   const { setCode, setCodeInput, auth } = useCode();
 
-  const authUser = () => {
-
-  };
-
   const sendNewUser = async () => {
     if (!checkEmail(email)) return setMessage(INVALID_EMAIL);
     if (password !== confirm) return setMessage(PASSWORD_NOT_CONFIRMED);
@@ -38,10 +34,16 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
     return setRenderSignup(false);
   };
 
+  const authEmail = async () => {
+    const { code, status, message } = await emailCode(email);
+    if (status !== ACCEPTED) return setMessage(message);
+    return setCode(code);
+  };
+
   const sendLogin = async () => {
     if (!checkEmail(email)) return setMessage(INVALID_EMAIL);
     const response = await login({ email, password });
-    if (response.message) return (CONNECT_FAIL);
+    if (response.message) return setMessage(CONNECT_FAIL);
     const callback = keepConnect ? saveLocalStorage : saveSessinStorage;
     callback(CALENDAR, response);
     setconnected(true);
@@ -50,7 +52,8 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
 
   const context = {
     name, lastname, email, password, confirm, setName, setLastname, setEmail, setPassword,
-    setConfirm, sendNewUser, keepConnect, setKeepConnect, sendLogin,
+    setConfirm, sendNewUser, keepConnect, setKeepConnect, sendLogin, setCodeInput, auth,
+    authEmail,
   };
 
   const contextMemo = useMemo(() => context, [context]);
