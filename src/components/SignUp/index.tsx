@@ -11,7 +11,7 @@ function SignUp() {
   const userContext = useContext(UserContext);
   const {
     name, lastname, email, password, confirm, setName,
-    setLastname, setPassword, setEmail, setConfirm, sendNewUser,
+    setLastname, setPassword, setEmail, setConfirm, authEmail,
   } = userContext as UserState;
 
   const requiriedFields = name && lastname && email && password && confirm;
@@ -32,7 +32,7 @@ function SignUp() {
           <input type="password" value={password} onInput={setPassword} placeholder="password" />
           <input type="password" value={confirm} onInput={setConfirm} placeholder="password" />
           <div className="buttons">
-            <button type="button" onClick={sendNewUser} disabled={!requiriedFields}>Send</button>
+            <button type="button" onClick={authEmail} disabled={!requiriedFields}>Send</button>
             <button type="button" onClick={toLogin}>Log In</button>
             <button type="button" onClick={() => setRenderSignup(false)}>Cancel</button>
           </div>

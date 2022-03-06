@@ -18,8 +18,10 @@ export type DefaultState = {
   setMessage: Dispatch<SetStateAction<string>>,
   renderLogin: boolean,
   renderSignup: boolean,
+  renderSignCode: boolean,
   setRenderLogin: Dispatch<SetStateAction<boolean>>,
   setRenderSignup: Dispatch<SetStateAction<boolean>>,
+  setRenderSignCode: Dispatch<SetStateAction<boolean>>,
   renderTaskDetails: boolean,
   setRenderTaskDetails: Dispatch<SetStateAction<boolean>>,
   renderTaskForm: boolean,
@@ -45,6 +47,10 @@ export type UserState = {
   keepConnect: boolean,
   setKeepConnect: Dispatch<SetStateAction<boolean>>,
   sendLogin: () => void,
+  setCodeInput: (_event: FormEvent<Element>) => void,
+  auth: boolean,
+  authEmail: () => void,
+  codeInput: string,
 };
 
 export type TaskItem = {

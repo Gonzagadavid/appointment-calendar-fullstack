@@ -7,7 +7,7 @@
   position: fixed;
 }
 
-.SignUp {
+.SignCode {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@
   position: fixed;
 }
 
-.SignUp .form {
+.SignCode .form {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -26,17 +26,17 @@
   align-items: center;
 }
 
-.SignUp .form input {
+.SignCode .form input {
   font-size: 30px;
 }
 
 
-.SignUp .form .buttons {
+.SignCode .form .buttons {
  width: 100%;
 }
 
 
-.SignUp .form .buttons button {
+.SignCode .form .buttons button {
   width: 25%;
   margin: 10px;
   font-size: 20px;

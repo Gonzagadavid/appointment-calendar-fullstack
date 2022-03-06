@@ -10,6 +10,7 @@ import Message from './components/Menssage';
 import TaskProvider from './contexts/tasks/TaskProvider';
 import TaskDetails from './components/TaskDetails';
 import TaskForm from './components/TaskForm';
+import SignCode from './components/SignCode';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <UserProvider>
           <LogIn />
           <SignUp />
+          <SignCode />
         </UserProvider>
       </AppProvider>
     </div>

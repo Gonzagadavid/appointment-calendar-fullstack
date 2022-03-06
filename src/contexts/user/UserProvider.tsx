@@ -12,7 +12,7 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { children } = props;
   const appContext = useContext(AppContext);
   const {
-    setMessage, setconnected, setRenderLogin, setRenderSignup,
+    setMessage, setconnected, setRenderLogin, setRenderSignup, setRenderSignCode,
   } = appContext as DefaultState;
   const [keepConnect, setKeepConnect] = useState(false);
   const { state: name, setState: setName } = useInput(EMPTY);
@@ -20,7 +20,9 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { state: email, setState: setEmail } = useInput(EMPTY);
   const { state: password, setState: setPassword } = useInput(EMPTY);
   const { state: confirm, setState: setConfirm } = useInput(EMPTY);
-  const { setCode, setCodeInput, auth } = useCode();
+  const {
+    setCode, setCodeInput, auth, codeInput,
+  } = useCode();
 
   const sendNewUser = async () => {
     if (!checkEmail(email)) return setMessage(INVALID_EMAIL);
@@ -37,6 +39,7 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const authEmail = async () => {
     const { code, status, message } = await emailCode(email);
     if (status !== ACCEPTED) return setMessage(message);
+    setRenderSignCode(true);
     return setCode(code);
   };
 
@@ -53,7 +56,7 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const context = {
     name, lastname, email, password, confirm, setName, setLastname, setEmail, setPassword,
     setConfirm, sendNewUser, keepConnect, setKeepConnect, sendLogin, setCodeInput, auth,
-    authEmail,
+    authEmail, codeInput,
   };
 
   const contextMemo = useMemo(() => context, [context]);
