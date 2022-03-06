@@ -7,7 +7,7 @@ const postCode: Handler = async (req, res, next) => {
     const { email } = req.body;
     const code = await emailCode(email);
 
-    res.status(ACCEPTED).json(code);
+    res.status(ACCEPTED).json({ code });
   } catch (err) {
     next(err);
   }
