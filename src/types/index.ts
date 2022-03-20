@@ -51,6 +51,9 @@ export type UserState = {
   auth: boolean,
   authEmail: () => void,
   codeInput: string,
+  renderRecover: boolean,
+  setRenderRecorver: Dispatch<SetStateAction<boolean>>,
+  recoverPassword: () => void,
 };
 
 export type TaskItem = {
