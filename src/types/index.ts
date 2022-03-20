@@ -2,7 +2,7 @@ import {
   ReactNode, SetStateAction, Dispatch, FormEvent,
 } from 'react';
 
-export type ArrayParam = Array<number|string|boolean>
+export type ArrayParam = Array<number | string | boolean>
 
 export type DefaultState = {
   year: number,
@@ -96,16 +96,16 @@ export type TaskState = {
   description: string,
   status: string,
   setTitle: (_event: FormEvent<Element>) => void,
-  setDescription: (_event: FormEvent<Element>)=> void,
-  setStatus: (_event: FormEvent<Element>)=> void,
+  setDescription: (_event: FormEvent<Element>) => void,
+  setStatus: (_event: FormEvent<Element>) => void,
   time: string,
-  setTime: (_event: FormEvent<Element>)=> void,
+  setTime: (_event: FormEvent<Element>) => void,
   editTask: () => void,
   edit: boolean,
   updateTask: (_task: TaskForm, _id: string) => void,
   removeTask: () => void,
   taskForm: TaskInputForm,
-  setTaskForm: (_event: FormEvent<Element>)=> void,
+  setTaskForm: (_event: FormEvent<Element>) => void,
 }
 
 export type User = {
@@ -127,12 +127,12 @@ export type UserLogin = {
 }
 
 export type HandlerFunction = (
-  _element: EventTarget, _callback:Dispatch<SetStateAction<string>>
-  ) => void
+  _element: EventTarget, _callback: Dispatch<SetStateAction<string>>
+) => void
 
 type CallbackEvent = (_event: FormEvent) => void
 
-export type useInputResult = Array<string|number|CallbackEvent>
+export type useInputResult = Array<string | number | CallbackEvent>
 
 export type UserInfo = { token: string, userName: string }
 

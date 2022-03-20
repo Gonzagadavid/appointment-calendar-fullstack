@@ -12,9 +12,13 @@ const useAllTasks = (connected: boolean) => {
     return setAllTasks(tasks);
   }, [connected]);
 
+  const resetTasks = () => {
+    setAllTasks([]);
+  };
+
   useEffect(() => { getTasks(); }, [getTasks]);
 
-  return { allTasks, getTasks };
+  return { allTasks, getTasks, resetTasks };
 };
 
 export default useAllTasks;

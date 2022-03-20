@@ -18,7 +18,7 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     setRenderTaskDetails, setRenderTaskForm,
   } = appContext as DefaultState;
   const initialList: TaskItem[] = [];
-  const { allTasks, getTasks } = useAllTasks(connected);
+  const { allTasks, getTasks, resetTasks } = useAllTasks(connected);
   const [tasksSelected, setTasksSelected] = useState(initialList);
   const { taskDetails, idSelected, setIdSelected } = useTask(EMPTY);
   const [edit, setEdit] = useState(false);
@@ -74,6 +74,11 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
     setIdSelected(EMPTY);
     await getTasks();
   };
+
+  useEffect(() => {
+    resetTasks();
+    setTasksSelected([]);
+  }, [connected]);
 
   useEffect(() => selectDate(), [selectDate]);
 

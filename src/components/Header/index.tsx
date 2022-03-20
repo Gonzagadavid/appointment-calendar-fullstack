@@ -4,6 +4,7 @@ import { DefaultState } from '../../types';
 import ConditionComponent from '../ConditionComponent';
 import Greet from '../Greet';
 import LoginAcess from '../LoginAcess';
+import Logout from '../Logout';
 import './style.css';
 
 function Header() {
@@ -17,6 +18,7 @@ function Header() {
       </ConditionComponent>
       <ConditionComponent condition={connected} className="userBox">
         <Greet />
+        <Logout />
       </ConditionComponent>
     </div>
   );
