@@ -5,9 +5,9 @@ import { Handler } from '../../types';
 const postPassword: Handler = async (req, res, next) => {
   try {
     const { email } = req.body;
-    const password = await sendPassword(email);
+    const message = await sendPassword(email);
 
-    res.status(ACCEPTED).json(password);
+    res.status(ACCEPTED).json({ message });
   } catch (err) {
     next(err);
   }

@@ -6,7 +6,7 @@ export const TASK_REMOVED = 'task removed successfully';
 
 export const USER_CREATED = 'user created successfully';
 
-export const EMAIL_SUCCESSFULLY = 'email sent successfully';
+export const EMAIL_SUCCESSFULLY = (email: string) => `password sent to email ${email}`;
 
 export const ACCESS_CODE = 'access';
 
