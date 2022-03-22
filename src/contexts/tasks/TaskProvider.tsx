@@ -83,18 +83,8 @@ function TaskProvider(props: PropsWithChildren<ReactNode>) {
   useEffect(() => selectDate(), [selectDate]);
 
   const context = {
-    allTasks,
-    tasksSelected,
-    setIdSelected,
-    taskDetails,
-    postNewTask,
-    editTask,
-    edit,
-    idSelected,
-    updateTask,
-    removeTask,
-    taskForm,
-    setTaskForm,
+    allTasks, tasksSelected, setIdSelected, taskDetails, postNewTask,
+    editTask, edit, idSelected, updateTask, removeTask, taskForm, setTaskForm,
   };
 
   const contextMemo = useMemo(() => context, [context]);

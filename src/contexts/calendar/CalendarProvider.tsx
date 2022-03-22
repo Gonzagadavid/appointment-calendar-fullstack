@@ -19,9 +19,7 @@ function CalendarProvider(props: PropsWithChildren<ReactNode>) {
 
   useEffect(() => { getBoard(); }, [getBoard]);
 
-  const context = {
-    calendarBoard,
-  };
+  const context = { calendarBoard };
 
   const contextMemo = useMemo(() => context, [context]);
 
