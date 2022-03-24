@@ -1,13 +1,19 @@
+* {
+  margin: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: cyan;
+  background-image: url('./images/request-appointment.jpg');
+  background-size: cover;
+  background-position: 100%;
+  background-attachment: fixed;
   height: 100vh;
   width: 100vw;
+  color:whitesmoke
 }
 
 code {
@@ -18,5 +24,4 @@ code {
 #root {
   height: 100%;
   width: 100%;
-  background-color: darkgreen;
 }

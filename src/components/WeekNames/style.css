@@ -1,6 +1,13 @@
 .WeekNames {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background-color: rgb(136, 25, 25);
+  background-color: #003b8e;
   height: 5%;
+}
+
+.WeekNames .name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
 }

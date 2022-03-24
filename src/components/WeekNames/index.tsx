@@ -7,7 +7,7 @@ function WeekNames() {
   return (
     <div className="WeekNames">
       {dayNames.map((dayName) => (
-        <div key={uuidv4()}>{dayName}</div>
+        <div key={uuidv4()} className="name">{dayName}</div>
       ))}
     </div>
   );

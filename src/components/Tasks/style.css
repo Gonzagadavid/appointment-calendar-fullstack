@@ -1,0 +1,9 @@
+.Task {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  width: 30%;
+  height: 80%;
+  justify-self: end;
+  margin-left: 2%;
+}

@@ -1,5 +1,7 @@
 .Content {
   display: flex;
   height: 100%;
-  background-color: chocolate;
+  align-items: center;
+  width: 98%;
+  margin: auto;
 }

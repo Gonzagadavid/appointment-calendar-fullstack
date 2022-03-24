@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { MdOutlineEditCalendar } from 'react-icons/md';
 import AppContext from '../../contexts/app/AppContext';
 import { DefaultState } from '../../types';
 import ConditionComponent from '../ConditionComponent';
@@ -12,7 +13,11 @@ function Header() {
   const { connected } = appContext as DefaultState;
   return (
     <div className="Header">
-      <h1>APP&rsquo;ointment Calendar</h1>
+      <h1>
+        <span className="icon"><MdOutlineEditCalendar /></span>
+        {' '}
+        APP&rsquo;ointment Calendar
+      </h1>
       <ConditionComponent condition={!connected} className="userBox">
         <LoginAcess />
       </ConditionComponent>
