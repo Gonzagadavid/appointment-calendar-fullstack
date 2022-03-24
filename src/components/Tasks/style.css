@@ -1,9 +1,14 @@
 .Task {
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  background-color: rgba(21, 100, 191, 0.5);
   width: 30%;
   height: 80%;
   justify-self: end;
   margin-left: 2%;
+  justify-content: space-around;
+}
+
+.Task h2 {
+  font-size: 30px;
 }

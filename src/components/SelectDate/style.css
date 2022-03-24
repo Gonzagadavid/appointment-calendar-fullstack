@@ -5,11 +5,12 @@
 }
 
 .SelectDate button{
+  font-family: learners;
   border: none;
   outline: none;
   background-color: #003b8e;;
   color: whitesmoke;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .SelectDate select {
