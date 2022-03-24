@@ -13,7 +13,11 @@ body {
   background-attachment: fixed;
   height: 100vh;
   width: 100vw;
-  color:whitesmoke
+  color:whitesmoke;
+}
+
+button {
+  cursor: pointer;
 }
 
 code {

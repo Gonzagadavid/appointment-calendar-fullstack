@@ -2,7 +2,8 @@
   display: flex;
   height: 15%;
   align-items: center;
-  background-color: #1564bf;
+  justify-content: center;
+  background-color: rgba(21, 100, 191, 0.5);
 }
 
 .CalendarHeader h2 {
@@ -11,6 +12,13 @@
 }
 
 .CalendarHeader button {
-  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
   height: 100%;
+  font-size: 80px;
+  color: whitesmoke;
+  background-color: transparent;
+  border: none;
 }
