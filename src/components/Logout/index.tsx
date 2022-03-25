@@ -15,7 +15,7 @@ function Logout() {
 
   return (
     <div className="Logout">
-      <button type="button" onClick={clearUser}>Log out</button>
+      <button type="button" onClick={clearUser}>Logout</button>
     </div>
   );
 }

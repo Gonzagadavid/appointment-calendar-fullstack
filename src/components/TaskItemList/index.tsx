@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import TaskContext from '../../contexts/tasks/TaskContext';
 import { TaskItem, TaskState } from '../../types';
+import './style.css';
 
 function TaskItemList(props: TaskItem) {
   const {
@@ -15,7 +16,7 @@ function TaskItemList(props: TaskItem) {
     setIdSelected(id);
   };
   return (
-    <button type="button" id={id} onClick={selectTask}>
+    <button className="TaskItem" type="button" id={id} onClick={selectTask}>
       <span>{title}</span>
       {' '}
       -

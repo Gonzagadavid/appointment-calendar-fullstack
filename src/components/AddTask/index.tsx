@@ -6,7 +6,7 @@ function AddTask() {
   const appContext = useContext(AppContext);
   const { setRenderTaskForm } = appContext as DefaultState;
   return (
-    <button type="button" onClick={() => setRenderTaskForm(true)}>
+    <button className="AddTask" type="button" onClick={() => setRenderTaskForm(true)}>
       Add Task
     </button>
   );

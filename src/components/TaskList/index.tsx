@@ -3,6 +3,7 @@ import TaskContext from '../../contexts/tasks/TaskContext';
 import { TaskState } from '../../types';
 import ConditionComponent from '../ConditionComponent';
 import TaskItemList from '../TaskItemList';
+import './style.css';
 
 function TaskList() {
   const taskContext = useContext(TaskContext);

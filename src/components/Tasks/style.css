@@ -9,6 +9,18 @@
   justify-content: space-around;
 }
 
+.Task button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: whitesmoke;
+  font-family: learners;
+}
+
 .Task h2 {
-  font-size: 30px;
+  font-size: 35px;
+}
+
+.Task .AddTask {
+  font-size: 35px;
 }

@@ -37,7 +37,7 @@ function TaskForm() {
     <ConditionComponent condition={renderTaskForm} className="TaskForm">
       <div className="formContainer">
         <input placeholder="Title" name="title" value={title} onChange={setTaskForm} />
-        <input placeholder="Description" name="description" value={description} onChange={setTaskForm} />
+        <textarea placeholder="Description" name="description" value={description} onChange={setTaskForm} />
         <label htmlFor="time">
           Scheduled Time:
           <input type="time" id="time" name="time" value={time} onChange={setTaskForm} />
