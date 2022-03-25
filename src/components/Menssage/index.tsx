@@ -11,8 +11,10 @@ function Message() {
 
   return (
     <div className="Message">
-      <h2>{message}</h2>
-      <button type="button" onClick={() => setMessage('')}>OK</button>
+      <div className="message-container">
+        <h2>{message}</h2>
+        <button type="button" onClick={() => setMessage('')}>OK</button>
+      </div>
     </div>
   );
 }

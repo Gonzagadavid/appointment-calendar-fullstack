@@ -5,10 +5,31 @@
   position: fixed;
   height: 100%;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  
 }
 
 .detailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 35px;
   width: 50%;
-  height: 50%;
-  background-color: cadetblue;
+  height: 80%;
+  background-color: rgba(21, 100, 191, 0.8);
+}
+
+.detailsContainer span {
+  margin-right: 10px;
+}
+
+.detailsContainer button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: learners;
+  color: whitesmoke;
+  font-size: 35px;
+  border-bottom: 1px whitesmoke solid;
+  margin-left: 20px;
 }

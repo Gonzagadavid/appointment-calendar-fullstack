@@ -1,13 +1,36 @@
 .Message {
-  background-color: rgb(105, 207, 211);
   display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 400px;
-  height: 250px;
-  left: 30%;
-  top: 30%;
+  width: 100vw;
+  height: 100vh;
+  font-size: 30px;
+  left: 0;
+  top: 0;
   z-index: 1;
+}
+
+.Message .message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; 
+  background-color: rgba(21, 100, 191, 0.8);
+  width: 40%;
+  height: 40%;
+  border-radius: 10px;
+}
+
+.Message .message-container button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: solid whitesmoke 1px;
+  color: whitesmoke;
+  font-size: 35px;
+  font-family: learners;
+
 }

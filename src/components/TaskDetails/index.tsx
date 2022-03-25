@@ -51,9 +51,11 @@ function TaskDetails() {
           <span>Last Update:</span>
           {`${updateDate.month} ${updateDate.day}, ${updateDate.year}  ${updateDate.hour}:${updateDate.minutes}`}
         </p>
-        <button type="button" onClick={renderDetails}>Close</button>
-        <button type="button" onClick={editTask}>Edit</button>
-        <button type="button" onClick={removeTask}>Remove</button>
+        <div className="button-container">
+          <button type="button" onClick={renderDetails}>Close</button>
+          <button type="button" onClick={editTask}>Edit</button>
+          <button type="button" onClick={removeTask}>Remove</button>
+        </div>
       </div>
     </ConditionComponent>
   );
