@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   position: fixed;
+  font-size: 40px;
 }
 
 .SignUp {
@@ -13,8 +14,11 @@
   align-items: center;
   width: 50%;
   height: 90%;
-  background-color: blue;
-  position: fixed;
+  background-color: rgba(21, 100, 191, 0.8);
+  z-index: 2;
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .SignUp .form {
@@ -27,7 +31,19 @@
 }
 
 .SignUp .form input {
-  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-bottom: solid white 1px;
+  font-family: learners;
+  font-size: 40px;
+  width: 350px;
+}
+
+.SignUp ::placeholder {
+  color: white;
 }
 
 
@@ -37,7 +53,12 @@
 
 
 .SignUp .form .buttons button {
-  width: 25%;
-  margin: 10px;
-  font-size: 20px;
+  font-family: learners;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  border-bottom: white 1px solid;
+  font-size: 30px;
+  margin-left: 20px;
 }

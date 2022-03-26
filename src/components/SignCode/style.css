@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: center;
   position: fixed;
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .SignCode {
@@ -12,9 +14,12 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
-  height: 90%;
-  background-color: blue;
-  position: fixed;
+  height: 50%;
+  background-color: rgba(21, 100, 191, 0.8);
+  z-index: 2;
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .SignCode .form {
@@ -26,8 +31,16 @@
   align-items: center;
 }
 
-.SignCode .form input {
-  font-size: 30px;
+.SignCode  input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-bottom: solid white 1px;
+  font-family: learners;
+  font-size: 40px;
+  width: 350px;
 }
 
 
@@ -36,8 +49,13 @@
 }
 
 
-.SignCode .form .buttons button {
-  width: 25%;
-  margin: 10px;
-  font-size: 20px;
+.SignCode  button {
+  font-family: learners;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  border-bottom: white 1px solid;
+  font-size: 30px;
+  margin-left: 20px;
 }
