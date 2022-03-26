@@ -12,8 +12,8 @@ function App() {
       <AppProvider>
         <Message />
         <Header />
-        <UserComponent />
         <TaskComponent />
+        <UserComponent />
       </AppProvider>
     </div>
   );

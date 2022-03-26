@@ -30,8 +30,8 @@ function LogIn() {
         <div className="form">
           <input type="email" value={email} onInput={setEmail} placeholder="example@email.com" />
           <input type="password" value={password} onInput={setPassword} placeholder="password" />
+          <button type="button" onClick={() => setRenderRecorver(true)}>Forgot password</button>
           <label htmlFor="keep-connected">
-            <button type="button" onClick={() => setRenderRecorver(true)}>Forgot password</button>
             <input
               type="checkbox"
               id="keep-connected"
