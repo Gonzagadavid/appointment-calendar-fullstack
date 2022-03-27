@@ -22,9 +22,13 @@
 .CalendarBoard .day .icon {
   position: absolute;
   font-size: 25px;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
 }
 .CalendarBoard .selected {
   background-color: rgba(146, 184, 255, 0.8 )
+}
+
+.CalendarBoard .checked {
+  color: rgb(121, 250, 250);
 }

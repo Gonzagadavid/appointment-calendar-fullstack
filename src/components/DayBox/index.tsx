@@ -18,7 +18,7 @@ function DayBox(props: { day: number }) {
   return (
     <button
       type="button"
-      className={`day${selected ? ' selected' : ''}`}
+      className={`day${selected ? ' selected' : ''}${checked ? ' checked' : ''}`}
       onClick={() => setSelectedDate(selectedDate)}
       disabled={!day}
     >
