@@ -6,6 +6,7 @@ import getDate from '../../functions/getDate';
 import { DefaultState, TaskState } from '../../types';
 import './style.css';
 import AppContext from '../../contexts/app/AppContext';
+import { ONE } from '../../constants/numbers';
 
 function TaskDetails() {
   const appContext = useContext(AppContext);
@@ -21,6 +22,7 @@ function TaskDetails() {
     year, month, day, hour, minutes,
   } = getDate(date);
   const updateDate = getDate(updated);
+  const formatMinutes = String(minutes).length === ONE ? `0${minutes}` : minutes;
 
   const renderDetails = () => {
     setRenderTaskDetails(false);
@@ -41,7 +43,7 @@ function TaskDetails() {
         </p>
         <p>
           <span>Scheduled Time:</span>
-          {`${hour}:${minutes}`}
+          {`${hour}:${formatMinutes}`}
         </p>
         <p>
           <span>Status:</span>
