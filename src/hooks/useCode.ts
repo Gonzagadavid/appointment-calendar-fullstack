@@ -1,35 +1,31 @@
 import { FormEvent, useState } from 'react';
-import {
-  FIVE, FOUR, ONE, SIX, ZERO,
-} from '../constants/numbers';
+import { FOUR, ZERO } from '../constants/numbers';
+import { EMPTY, HIFEN } from '../constants/strings';
 
 const useCode = () => {
-  const [code, setCode] = useState('');
-  const [codeInput, setInput] = useState('');
+  const initCode: string[] = [];
+  const [code, setCode] = useState(EMPTY);
+  const [codeInput, setInput] = useState(initCode);
   const [auth, setAuth] = useState(false);
+  const [indexCode, setIndex] = useState(ZERO);
 
   const setCodeInput = (event: FormEvent<Element>) => {
     const { value } = event.target as HTMLInputElement;
+    const regexp = indexCode === FOUR ? /\D/ : /[^a-zA-Z]/;
+    if (regexp.test(value)) return;
 
-    if (!value) setInput('');
+    const arrCode = [...codeInput, value.toUpperCase()];
 
-    if (!/[\w-]/g.test(value) || value.length > SIX) return null;
+    setIndex(arrCode.length);
+    setInput(arrCode);
 
-    const text = value.slice(ZERO, FOUR).toUpperCase();
-    const digit = value.slice(-ONE);
-    const formatText = `${text}-${digit}`;
-
-    if (value.length === FIVE && /\d/.test(digit)) setInput(formatText);
-
-    const check = formatText === code;
+    const check = arrCode.join(EMPTY) === code.replace(HIFEN, EMPTY);
 
     setAuth(check);
-
-    return setInput(text);
   };
 
   return {
-    setCode, setCodeInput, auth, codeInput,
+    setCode, setCodeInput, auth, codeInput, indexCode,
   };
 };
 

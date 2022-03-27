@@ -54,6 +54,7 @@ export type UserState = {
   renderRecover: boolean,
   setRenderRecorver: Dispatch<SetStateAction<boolean>>,
   recoverPassword: () => void,
+  indexCode: number,
 };
 
 export type TaskItem = {
