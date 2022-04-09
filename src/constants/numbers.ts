@@ -9,3 +9,5 @@ export const TWENTY_FIVE = 25;
 export const NINE = 9;
 
 export const SIXTY_FIVE = 65;
+
+export const DEFAULT_PORT = 3800;
