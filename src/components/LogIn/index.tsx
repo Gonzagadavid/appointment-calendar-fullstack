@@ -12,7 +12,7 @@ function LogIn() {
   const userContext = useContext(UserContext);
   const {
     email, setEmail, password, setPassword, setKeepConnect, keepConnect, sendLogin,
-    setRenderRecorver,
+    setRenderRecorver, renderRecover,
   } = userContext as UserState;
 
   const requiriedFields = email && password;
@@ -27,7 +27,7 @@ function LogIn() {
       <div className="Login">
         <h2>Log In</h2>
         <RecoverPassword />
-        <div className="form">
+        <ConditionComponent className="form" condition={!renderRecover}>
           <input type="email" value={email} onInput={setEmail} placeholder="example@email.com" />
           <input type="password" value={password} onInput={setPassword} placeholder="password" />
           <button type="button" onClick={() => setRenderRecorver(true)}>Forgot password</button>
@@ -45,7 +45,7 @@ function LogIn() {
             <button type="button" onClick={toSignup}>Sign Up</button>
             <button type="button" onClick={() => setRenderLogin(false)}>Cancel</button>
           </div>
-        </div>
+        </ConditionComponent>
       </div>
     </ConditionComponent>
   );

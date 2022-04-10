@@ -12,9 +12,14 @@ function RecoverPassword() {
 
   return (
     <ConditionComponent className="RecoverPassword" condition={renderRecover}>
-      <input value={email} onInput={setEmail} />
-      <button type="button" onClick={recoverPassword}>Send</button>
-      <button type="button" onClick={() => setRenderRecorver(false)}>Cancel</button>
+      <h3>send password to:</h3>
+      <div className="form">
+        <input value={email} onInput={setEmail} />
+        <div className="buttons">
+          <button type="button" onClick={recoverPassword}>Send</button>
+          <button type="button" onClick={() => setRenderRecorver(false)}>Cancel</button>
+        </div>
+      </div>
     </ConditionComponent>
   );
 }
