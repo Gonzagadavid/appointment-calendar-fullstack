@@ -1,9 +1,5 @@
 import { Router } from 'express';
 import authToken from '../../auth';
-// import {
-//   deleteTask, getTask, postTask, putTask,
-// } from '../../controllers/tasks';
-// import getAllTasks from '../../controllers/tasks/getAllTask';
 import TasksController from '../../controllers/TasksController';
 import { validateTask } from '../../middlewares';
 
