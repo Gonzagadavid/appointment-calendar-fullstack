@@ -1,9 +1,8 @@
-import dotenv from 'dotenv';
-import app from './app';
+import App from './app';
+import routerRoot from './routers';
 
-dotenv.config();
+const app = new App();
 
-const { PORT } = process.env;
-const started = `started in port ${PORT}`;
+app.addRouter(routerRoot);
 
-app.listen(PORT, () => console.log(started));
+app.startServer();

@@ -1,20 +1,34 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import express, { Application, Router } from 'express';
+import { config } from 'dotenv';
 import cors from 'cors';
 import { error } from '../middlewares';
-import routerRoot from '../routers';
+import { DEFAULT_PORT } from '../constants/numbers';
 
-dotenv.config();
+config();
 
-const { FRONTENDAPP } = process.env;
+const { FRONTENDAPP, PORT } = process.env;
 const origin = FRONTENDAPP;
 
-const app = express();
-app.use(cors({ origin }));
-app.use(express.json());
+const started = `started in port ${PORT}`;
 
-app.use('/', routerRoot);
+class App {
+  private app: Application;
 
-app.use(error);
+  constructor() {
+    this.app = express();
+    this.app.use(cors({ origin }));
+    this.app.use(express.json());
+  }
 
-export default app;
+  public startServer(port = DEFAULT_PORT) {
+    const actualPort = PORT || port;
+    this.app.listen(actualPort, () => console.log(started));
+  }
+
+  public addRouter(router: Router) {
+    this.app.use(router);
+    this.app.use(error);
+  }
+}
+
+export default App;
