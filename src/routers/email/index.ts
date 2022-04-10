@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { validateEmail } from '../../middlewares';
-import { postCode, postPassword } from '../../controllers/email';
+import EmailController from '../../controllers/EmailController';
 
 const router = Router();
+const controller = new EmailController();
 
-router.post('/', validateEmail, postCode);
+router.post('/', validateEmail, controller.postCode);
 
-router.post('/password', validateEmail, postPassword);
+router.post('/password', validateEmail, controller.postPassword);
 
 export default router;
