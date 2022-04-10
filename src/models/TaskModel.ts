@@ -27,7 +27,7 @@ class TaskModel extends DBModel {
 
   async findAllTasks(userId: string) {
     const projection = {
-      id: '_id', title: 1, date: 1, status: 1,
+      id: '$_id', title: 1, date: 1, status: 1, _id: 0,
     };
     const tasks = await this.find({ userId }, projection);
     return tasks;

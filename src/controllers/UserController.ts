@@ -34,7 +34,6 @@ class UserController {
 
       res.status(ACCEPTED).json(user);
     } catch (err) {
-      console.log(err);
       next(err);
     }
   }

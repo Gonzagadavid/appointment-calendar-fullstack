@@ -1,21 +1,25 @@
 import { Router } from 'express';
 import authToken from '../../auth';
-import {
-  deleteTask, getTask, postTask, putTask,
-} from '../../controllers/tasks';
-import getAllTasks from '../../controllers/tasks/getAllTask';
+// import {
+//   deleteTask, getTask, postTask, putTask,
+// } from '../../controllers/tasks';
+// import getAllTasks from '../../controllers/tasks/getAllTask';
+import TasksController from '../../controllers/TasksController';
 import { validateTask } from '../../middlewares';
 
 const router = Router();
+const controller = new TasksController();
 
-router.get('/', authToken, getAllTasks);
+router.use(authToken);
 
-router.get('/:id', authToken, getTask);
+router.get('/', controller.getAllTasks);
 
-router.post('/', authToken, validateTask, postTask);
+router.get('/:id', controller.getTask);
 
-router.put('/:id', authToken, validateTask, putTask);
+router.post('/', validateTask, controller.postTask);
 
-router.delete('/:id', authToken, deleteTask);
+router.put('/:id', validateTask, controller.putTask);
+
+router.delete('/:id', controller.deleteTask);
 
 export default router;
