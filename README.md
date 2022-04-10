@@ -126,6 +126,61 @@ saída *(status: 202)*:
 
 ```
 
+## POST /email
+
+A rota `POST /email` foi desenvolvida para enviar um código de validação para o email da pessoa usuária, durante o cadastro.
+
+entrada:
+
+```json
+{
+  "body": {
+  	"email": "user@server.com",
+	  "password": "123456"
+  }
+}
+
+```
+saída *(status: 202)*:
+
+```json
+{
+  {
+	  "code": "BUQN-8"
+  }
+}
+
+```
+
+## POST /email/password
+
+A rota `POST /email/password` foi desenvolvida para enviar a senha da pessoa usuária para seu email, caso tenha esquecido.
+
+entrada:
+
+```json
+{
+  "body": {
+  	"email": "user@server.com",
+	  "password": "123456"
+  }
+}
+
+```
+
+saída *(status: 202)*:
+
+```json
+{
+	{
+		"message": "password sent to email user@server.com"
+	}
+
+}
+
+```
+
+
 ## POST /tasks
 
 A rota `POST /tasks` foi desenvolvida para a inseção de uma nova tarefa no banco de dados.
