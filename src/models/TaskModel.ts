@@ -7,25 +7,25 @@ class TaskModel extends DBModel {
     super('tasks');
   }
 
-  async updateTask(id: string, task: Task) {
+  public async updateTask(id: string, task: Task) {
     const taskUpdated = await this.updateOne({ _id: new ObjectId(id) }, { $set: { ...task } });
 
     return taskUpdated;
   }
 
-  async findTask(id: string) {
+  public async findTask(id: string) {
     const task = await this.findOne({ _id: new ObjectId(id) });
 
     return task;
   }
 
-  async removeTask(id: string) {
+  public async removeTask(id: string) {
     const taskUpdated = await this.deleteOne({ _id: new ObjectId(id) });
 
     return taskUpdated;
   }
 
-  async findAllTasks(userId: string) {
+  public async findAllTasks(userId: string) {
     const projection = {
       id: '$_id', title: 1, date: 1, status: 1, _id: 0,
     };

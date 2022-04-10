@@ -5,7 +5,7 @@ class UserModel extends DBModel {
     super('users');
   }
 
-  async findUserByEmail(email: string) {
+  public async findUserByEmail(email: string) {
     const user = await this.findOne({ email });
     return user;
   }
