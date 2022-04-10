@@ -8,6 +8,7 @@ class UserController {
   constructor() {
     this.service = new UserService();
     this.postLogin = this.postLogin.bind(this);
+    this.postUsers = this.postUsers.bind(this);
   }
 
   public async postUsers(req: Request, res: Response, next: NextFunction) {

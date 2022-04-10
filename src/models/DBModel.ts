@@ -1,4 +1,3 @@
-// import * as mongoDB from 'mongodb';
 import connection from './connection';
 
 class DBModel {
@@ -14,9 +13,9 @@ class DBModel {
     return product;
   }
 
-  async find(filter = {}) {
+  async find(filter = {}, projection = {}) {
     const db = await connection();
-    const product = await db.collection(this.collection).find(filter).toArray();
+    const product = await db.collection(this.collection).find(filter, { projection }).toArray();
     return product;
   }
 
