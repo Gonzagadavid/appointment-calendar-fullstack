@@ -8,10 +8,10 @@ const OPTIONS = {
   useUnifiedTopology: true,
 } as mongoDB.ConnectOptions;
 
-const MONGO_DB_URL = process.env.MONGO_URL || 'localhost';
+const MONGO_DB_URL = process.env.MONGO_URL || 'mongodb://localhost:27017';
 const DB_NAME = 'Calendar';
 
-let db : mongoDB.Db | null = null;
+let db: mongoDB.Db | null = null;
 const connection = () => (db
   ? Promise.resolve(db)
   : mongoDB.MongoClient.connect(MONGO_DB_URL, OPTIONS)
