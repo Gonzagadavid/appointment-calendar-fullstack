@@ -389,8 +389,6 @@ Deploy feito no heroku [Heroku](https://www.heroku.com/)
 
  <img src="./assets/icons/heroku.svg" alt="heroku icon" height="70" width="70">
 
- <h1><a href="https://todo-list-frontend-green.vercel.app/" >Visite a Aplicação</a></h1>
-
 # Implementações Futuras
 
 - Documentação Swagger
