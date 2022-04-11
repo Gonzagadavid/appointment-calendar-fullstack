@@ -4,9 +4,10 @@ import { DefaultState } from '../../types';
 
 function AddTask() {
   const appContext = useContext(AppContext);
-  const { setRenderTaskForm } = appContext as DefaultState;
+  const { setRenderTaskForm, setRenderLogin, connected } = appContext as DefaultState;
+  const callback = connected ? setRenderTaskForm : setRenderLogin;
   return (
-    <button className="AddTask" type="button" onClick={() => setRenderTaskForm(true)}>
+    <button className="AddTask" type="button" onClick={() => callback(true)}>
       Add Task
     </button>
   );

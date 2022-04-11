@@ -23,7 +23,7 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
   const { state: password, setState: setPassword } = useInput(EMPTY);
   const { state: confirm, setState: setConfirm } = useInput(EMPTY);
   const {
-    setCode, setCodeInput, auth, codeInput, indexCode,
+    setCode, setCodeInput, auth, codeInput, indexCode, resetCode,
   } = useCode();
 
   const sendNewUser = async () => {
@@ -65,7 +65,7 @@ function UserProvider(props: PropsWithChildren<ReactNode>) {
     name, lastname, email, password, confirm, setName, setLastname, setEmail, setPassword,
     setConfirm, sendNewUser, keepConnect, setKeepConnect, sendLogin, setCodeInput, auth,
     authEmail, codeInput, renderRecover, setRenderRecorver, recoverPassword,
-    indexCode,
+    indexCode, resetCode,
   };
 
   const contextMemo = useMemo(() => context, [context]);

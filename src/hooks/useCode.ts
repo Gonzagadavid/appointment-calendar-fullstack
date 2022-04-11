@@ -11,6 +11,7 @@ const useCode = () => {
 
   const setCodeInput = (event: FormEvent<Element>) => {
     const { value } = event.target as HTMLInputElement;
+
     const regexp = indexCode === FOUR ? /\D/ : /[^a-zA-Z]/;
     if (regexp.test(value)) return;
 
@@ -24,8 +25,15 @@ const useCode = () => {
     setAuth(check);
   };
 
+  const resetCode = () => {
+    setCode(EMPTY);
+    setInput(initCode);
+    setAuth(false);
+    setIndex(ZERO);
+  };
+
   return {
-    setCode, setCodeInput, auth, codeInput, indexCode,
+    setCode, setCodeInput, auth, codeInput, indexCode, resetCode,
   };
 };
 

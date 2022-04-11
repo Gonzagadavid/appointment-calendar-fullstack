@@ -6,13 +6,14 @@ import AppContext from '../../contexts/app/AppContext';
 import UserContext from '../../contexts/user/UserContext';
 import { DefaultState, UserState } from '../../types';
 import './style.css';
+import { FIVE } from '../../constants/numbers';
 
 function SignCode() {
   const appContext = useContext(AppContext);
   const { renderSignCode, setRenderSignCode } = appContext as DefaultState;
   const userContext = useContext(UserContext);
   const {
-    codeInput, setCodeInput, auth, sendNewUser, indexCode,
+    codeInput, setCodeInput, auth, sendNewUser, indexCode, resetCode,
   } = userContext as UserState;
   const [message, setMessage] = useState('Insert Code');
   const [char1, char2, char3, char4, digit] = codeInput;
@@ -24,9 +25,17 @@ function SignCode() {
   }, [auth]);
 
   useEffect(() => {
-    if (codeInput.length < 6) return;
+    if (codeInput.length < 5) return;
     const status = auth ? 'Confirmed' : 'Incorect Code';
     setMessage(status);
+    if (!auth && codeInput.length === FIVE) {
+      setMessage('Incorrect Code. Try again');
+      setTimeout(() => {
+        setRenderSignCode(false);
+        resetCode();
+        setMessage('Insert Code');
+      }, 3000);
+    }
   }, [codeInput]);
 
   return (

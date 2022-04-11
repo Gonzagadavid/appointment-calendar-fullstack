@@ -1,8 +1,9 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import { EMAIL_CODE } from '../endPoints';
 
 const emailCode = async (email: string) => {
   try {
-    const { data, status } = await axios.post('http://localhost:3800/email', { email });
+    const { data, status } = await axios.post(EMAIL_CODE, { email });
     return { ...data, status };
   } catch (err) {
     const { response } = err as AxiosError;

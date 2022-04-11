@@ -1,46 +1,141 @@
-# Getting Started with Create React App
+# App'ointment Calendar - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sumário
 
-## Available Scripts
+- [Introdução](#introdução)
+- [Instruções para rodar localmente](#instruções-para-rodar-localmente)
+- [Detalhes da aplicação](#detalhes-da-aplicação)
+  - [Tela inicial](#tela-inicial)
+  - [Cadastro](#cadastro)
+  - [Login](#login)
+  - [Adicionar tarefa](#adicionar-tarefa)
+- [API](#api)
+- [Tecnologias](#tecnologias)
+- [Deploy](#deploy)
+- [Futuras Implementações](#futuras-implementações)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# Introdução
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A aplicação Appoiment Calendar foi desenvolvida com o objetivo de proporcionar a pessoa usuária de forma visual o controle  de prazos e agendamento de tarefas, prazos e compromissos.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![tela da aplicação](./public/assets/images/introducao.png)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Instruções para rodar localmente
 
-### `npm run build`
+1 - Abra o terminal
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2 - clone o repositório do Backend `git@github.com:Gonzagadavid/appointment-calendar-backend.git`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3 - entre no diretório do repositorio clonado `cd appointment-calendar-backend`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4 - execute o comando para instalar as dependências `npm install`
 
-### `npm run eject`
+5 - preencha o arquivo `.env-eg` com os dados do seu banco de dados MongoDB local e mude o nome do arquivo para `.env`  
+*caso não tenha o MongoDB instalado siga o seguinte [tutorial](https://docs.mongodb.com/manual/installation/)* 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6 - execute o comando para iniciar o servidor `npm start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+7 - abra um nova janela do terminal
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+8 - clone o repositório do Frontend `git clone git@github.com:Gonzagadavid/appointment-calendar-frontend.git`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+9 - entre no diretório do repositorio clonado `cd appointment-calendar-frontend`
 
-## Learn More
+10 - execute o comando para instalar as dependências `npm install`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+11 - verifique no arquivo `src/services/backend/endpoints.ts` está com a constante BASE_URL  condizente com a porta do backend, caso tenha alterado no backend, deverá ser atulizado nessa constante também 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+12 - execute o comando para iniciar a aplicação `npm start`
+
+13 - a aplicação iniciará em `http://localhost:3000`
+
+---
+
+# Detalhes da aplicação
+
+
+## Tela inicial
+
+Ao iniciar a aplicação, a pessoa usuária terá acesso normalmente ao calendário, porém para adicionar tarefa será requisitado o login. 
+
+![tela inicial](./public/assets/images/tela-inicial.png)
+
+## Cadastro
+
+Ao clicar em Sign Up na parte superior direita a pessoa usuária porderá se cadastrar na aplicação, forncendo nome, sobrenome e um email ativo.
+
+![formulario de cadastro](./public/assets/images/cadastro.png)
+
+Após a pessoa fornecer as informações, um código de quatro caracteres e um digito será enviado no email, então será renderizado um modal para que a pessoa possa inserir e assim validar seu email.
+
+![modal do código](./public/assets/images/confirm-code.png)
+
+
+## Login
+
+Ao clicar em Log In na parte superior da tela a pessoa usuária poderá entrar na aplicação, tendo a opção de manter-se logada. 
+Caso a pessoa esqueça a senha basta clicar em 'Forgot password' e a senha será enviada para seu o email.
+
+![tela de login](./public/assets/images/login.png)
+
+
+Após logar o nome da pessoa usuária será exibido no lado superio direito da tela
+
+![tela inicial](./public/assets/images/logged.png)
+
+## Adicionar tarefa
+
+Para adicionar tarefa basta a pessoa usuária clicar em 'Add Task' na parte inferior direita
+
+![formulário de tarefa](./public/assets/images/add-task.png)
+
+Após preencher o formulário com as informações da tarefa e clicar em 'Send', será exibido os detalhes da tarefa, e então a tarefa será adicionada na lista daquele dia.
+Os dias em que tarefas são adicionado a cor da data será azulada com um ícone, indicando que há compromisso para aquele dia.
+
+![tela com tarefa adicionada](./public/assets/images/task-added.png)
+
+## Detalhes da tarefa
+
+Ao clicar em uma tarefa da lista, será exibido os detalhes da tarefa, e pessoa poderá também editar e remover a tarefa.
+
+![detalhes da tarefa](./public/assets/images/task-details.png)
+
+---
+
+# Api
+
+Para a renderização correta do calendário foi utilizada a API [Calendar JSON API](#https://github.com/Gonzagadavid/calendar-json-api)
+
+---
+
+# Tecnologias
+
+- React
+- Typescript
+- Testing Library
+- Axios
+- Eslint
+
+<div align="center">
+  <img height="100" width="100" src="./public/assets/icons/react.svg"/> 
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./public/assets/icons/typescript.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./public/assets/icons/testinglibrary.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./public/assets/icons/eslint.svg" />
+</div>
+
+# Deploy
+
+Para o deploy da aplicação foi escolhido a [Vercel](#https://vercel.com/)
+
+# Futuras implementações
+
+- cobertura de teste em 100% da aplicação
+
+- implementar página para a pessoa adminitradora direcionar tarefas para outras pessoas usuárias
