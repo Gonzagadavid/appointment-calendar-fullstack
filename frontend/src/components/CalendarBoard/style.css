@@ -1,0 +1,34 @@
+.CalendarBoard {
+  display: grid;
+  height: 80%;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.CalendarBoard .week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.CalendarBoard .day {
+  background-color: rgba(94, 145, 242, 0.5);
+  border: solid #999 1px;
+  filter: blur(50%);
+  color: whitesmoke;
+  font-size: 50px;
+  position: relative;
+  font-family: learners;
+}
+
+.CalendarBoard .day .icon {
+  position: absolute;
+  font-size: 25px;
+  top: 10px;
+  right: 10px;
+}
+.CalendarBoard .selected {
+  background-color: rgba(146, 184, 255, 0.8 )
+}
+
+.CalendarBoard .checked {
+  color: rgb(121, 250, 250);
+}

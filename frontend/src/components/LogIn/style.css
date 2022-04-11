@@ -1,0 +1,69 @@
+.LoginContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 40px;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 90%;
+  background-color: rgba(21, 100, 191, 0.8);
+  z-index: 2;
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.Login .form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 80%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Login .form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-bottom: solid white 1px;
+  font-family: learners;
+  font-size: 40px;
+  width: 400px;
+}
+
+.Login ::placeholder {
+  color: white;
+}
+
+.Login .form input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.Login .form .buttons {
+ width: 100%;
+}
+
+
+.Login .form  button {
+  font-family: learners;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  border-bottom: white 1px solid;
+  font-size: 30px;
+  margin-left: 20px;
+}

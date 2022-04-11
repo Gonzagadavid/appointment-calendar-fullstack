@@ -1,0 +1,28 @@
+.SelectDate {
+ display: grid;
+ grid-template-rows: repeat(13, 1fr);
+ height: 80%;
+}
+
+.SelectDate button{
+  font-family: learners;
+  border: none;
+  outline: none;
+  background-color: rgb(0, 59, 142);;
+  color: whitesmoke;
+  font-size: 25px;
+}
+
+.SelectDate select {
+  font-family: learners;
+  color: #003b8e;
+  outline: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+.SelectDate .selected {
+  background-color: whitesmoke;
+  color: #003b8e;;
+}
+

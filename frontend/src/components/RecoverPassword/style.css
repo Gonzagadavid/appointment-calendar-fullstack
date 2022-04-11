@@ -1,0 +1,33 @@
+.RecoverPassword {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 40%;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.RecoverPassword .form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  border-bottom: solid white 1px;
+  font-family: learners;
+  font-size: 40px;
+  width: 450px;
+}
+
+.RecoverPassword .form .buttons button {
+  font-family: learners;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  border-bottom: white 1px solid;
+  font-size: 30px;
+  margin-left: 20px;
+}

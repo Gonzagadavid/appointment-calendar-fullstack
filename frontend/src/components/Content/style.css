@@ -1,0 +1,7 @@
+.Content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 98%;
+  margin: auto;
+}

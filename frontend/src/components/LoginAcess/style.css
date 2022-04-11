@@ -1,0 +1,12 @@
+.LoginAcess {
+  display: flex;
+}
+
+.LoginAcess button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: learners;
+  font-size: 35px;
+  margin-left: 20px;
+}

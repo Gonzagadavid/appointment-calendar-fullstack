@@ -1,0 +1,27 @@
+.Task {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(21, 100, 191, 0.5);
+  width: 30%;
+  height: 80%;
+  justify-self: end;
+  margin-left: 2%;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+.Task button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: whitesmoke;
+  font-family: learners;
+}
+
+.Task h2 {
+  font-size: 35px;
+}
+
+.Task .AddTask {
+  font-size: 35px;
+}
