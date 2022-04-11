@@ -10,8 +10,6 @@
 
 # Sumário
 
-- [Introdução](#introdução)
-- [Instruções para rodar localmente](#instruções-para-rodar-localmente)
 - [Detalhes da aplicação](#detalhes-da-aplicação)
   - [Tela inicial](#tela-inicial)
   - [Cadastro](#cadastro)
@@ -22,44 +20,6 @@
 - [Deploy](#deploy)
 - [Futuras Implementações](#futuras-implementações)
 
----
-
-# Introdução
-
-A aplicação Appoiment Calendar foi desenvolvida com o objetivo de proporcionar a pessoa usuária de forma visual o controle  de prazos e agendamento de tarefas, prazos e compromissos.
-
-![tela da aplicação](./public/assets/images/introducao.png)
-
----
-
-# Instruções para rodar localmente
-
-1 - Abra o terminal
-
-2 - clone o repositório do Backend `git@github.com:Gonzagadavid/appointment-calendar-backend.git`
-
-3 - entre no diretório do repositorio clonado `cd appointment-calendar-backend`
-
-4 - execute o comando para instalar as dependências `npm install`
-
-5 - preencha o arquivo `.env-eg` com os dados do seu banco de dados MongoDB local e mude o nome do arquivo para `.env`  
-*caso não tenha o MongoDB instalado siga o seguinte [tutorial](https://docs.mongodb.com/manual/installation/)* 
-
-6 - execute o comando para iniciar o servidor `npm start`
-
-7 - abra um nova janela do terminal
-
-8 - clone o repositório do Frontend `git clone git@github.com:Gonzagadavid/appointment-calendar-frontend.git`
-
-9 - entre no diretório do repositorio clonado `cd appointment-calendar-frontend`
-
-10 - execute o comando para instalar as dependências `npm install`
-
-11 - verifique no arquivo `src/services/backend/endpoints.ts` está com a constante BASE_URL  condizente com a porta do backend, caso tenha alterado no backend, deverá ser atulizado nessa constante também 
-
-12 - execute o comando para iniciar a aplicação `npm start`
-
-13 - a aplicação iniciará em `http://localhost:3000`
 
 ---
 

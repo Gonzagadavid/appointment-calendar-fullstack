@@ -1,4 +1,4 @@
-# App'oiment Calendar - Backend
+# App'ointment Calendar - Full stack
 
 <h1><a href="https://appointment-calendar-frontend.vercel.app/" >Visite a Aplicação</a></h1>
 
@@ -8,31 +8,177 @@
 
 ---
 
-# Sumário 
+<h2><a href="https://github.com/Gonzagadavid/appointment-calendar-backend" >App'ointment Calendar - Backend</a></h2>
 
-- [Arquitetura](#Arquitetura)
-- [Rotas](#rotas)
-  - [POST /users](post-/user)
-  - [POST /users/login](post-/user/login)
-  - [POST /tasks](post-/task)
-  - [GET /tasks](get-/task)
-  - [GET /tasks/:id](get-/task/:id)
-  - [PUT /tasks/:id](put-/task/:id)
-  - [DELETE /tasks/:id](delete-/task/:id)
-- [Banco de Dados](#banco-de-dados)
-- [Validação](#validação)
-- [Tecnologias](#tecnologias)
-- [Deploy](#deploy)
-- [Implementações Futuras](implementações-futuras)
+---
+
+# Sumário
+
+- [Introdução](#introdução)
+- [Instruções](#instruções)
+- [Frontend](#Frontend)
+  - [Detalhes da aplicação](#detalhes-da-aplicação)
+    - [Tela inicial](#tela-inicial)
+    - [Cadastro](#cadastro)
+    - [Login](#login)
+    - [Adicionar tarefa](#adicionar-tarefa)
+  - [API](#api)
+  - [Tecnologias](#tecnologias)
+  - [Deploy](#deploy)
+  - [Futuras Implementações](#futuras-implementações)
+- [Backend](#backend)
+  - [Arquitetura](#Arquitetura)
+  - [Rotas](#rotas)
+    - [POST /users](post-/user)
+    - [POST /users/login](post-/user/login)
+    - [POST /tasks](post-/task)
+    - [GET /tasks](get-/task)
+    - [GET /tasks/:id](get-/task/:id)
+    - [PUT /tasks/:id](put-/task/:id)
+    - [DELETE /tasks/:id](delete-/task/:id)
+  - [Banco de Dados](#banco-de-dados)
+  - [Validação](#validação)
+  - [Tecnologias](#tecnologias)
+  - [Deploy](#deploy)
+  - [Implementações Futuras](implementações-futuras)
 
 
 ---
+
+# Introdução
+
+A aplicação Appoiment Calendar foi desenvolvida com o objetivo de proporcionar a pessoa usuária de forma visual o controle  de prazos e agendamento de tarefas, prazos e compromissos.
+
+---
+
+# Instruções
+
+1 - abra o terminal
+
+2- clone o repositório do full stack `git@github.com:Gonzagadavid/appointment-calendar-fullstack.git`
+
+3- entre no diretório do repositorio clonado `appointment-calendar-fullstack`
+
+4- entre no diretório do backend `cd backend`
+
+5- execute o comando para instalar as dependências `npm install`
+
+6- preencha o arquivo `.env-eg` com os dados do seu banco de dados MongoDB local e mude o nome do arquivo para `.env`  
+*caso não tenha o MongoDB instalado siga o seguinte [tutorial](https://docs.mongodb.com/manual/installation/)* 
+
+7- execute o comando para iniciar o servidor `npm start`
+
+7- abra um nova janela do terminal no diretorio `appointment-calendar-fullstack`
+
+9- entre no diretório do frontend `cd frontend`
+
+10- execute o comando para instalar as dependências `npm install`
+
+11 - verifique no arquivo `src/services/backend/endpoints.ts` está com a constante BASE_URL  condizente com a porta do backend, caso tenha alterado no backend, deverá ser atulizado nessa constante também 
+
+12- execute o comando para iniciar a aplicação `npm start`
+
+13- a aplicação iniciará em `http://localhost:3000`
+
+
+# Frontend
+
+# Detalhes da aplicação
+
+
+## Tela inicial
+
+Ao iniciar a aplicação, a pessoa usuária terá acesso normalmente ao calendário, porém para adicionar tarefa será requisitado o login. 
+
+![tela inicial](./frontend/public/assets/images/tela-inicial.png)
+
+## Cadastro
+
+Ao clicar em Sign Up na parte superior direita a pessoa usuária porderá se cadastrar na aplicação, forncendo nome, sobrenome e um email ativo.
+
+![formulario de cadastro](./frontend/public/assets/images/cadastro.png)
+
+Após a pessoa fornecer as informações, um código de quatro caracteres e um digito será enviado no email, então será renderizado um modal para que a pessoa possa inserir e assim validar seu email.
+
+![modal do código](./frontend/public/assets/images/confirm-code.png)
+
+
+## Login
+
+Ao clicar em Log In na parte superior da tela a pessoa usuária poderá entrar na aplicação, tendo a opção de manter-se logada. 
+Caso a pessoa esqueça a senha basta clicar em 'Forgot password' e a senha será enviada para seu o email.
+
+![tela de login](./frontend/public/assets/images/login.png)
+
+
+Após logar o nome da pessoa usuária será exibido no lado superio direito da tela
+
+![tela inicial](./frontend/public/assets/images/logged.png)
+
+## Adicionar tarefa
+
+Para adicionar tarefa basta a pessoa usuária clicar em 'Add Task' na parte inferior direita
+
+![formulário de tarefa](./frontend/public/assets/images/add-task.png)
+
+Após preencher o formulário com as informações da tarefa e clicar em 'Send', será exibido os detalhes da tarefa, e então a tarefa será adicionada na lista daquele dia.
+Os dias em que tarefas são adicionado a cor da data será azulada com um ícone, indicando que há compromisso para aquele dia.
+
+![tela com tarefa adicionada](./frontend/public/assets/images/task-added.png)
+
+## Detalhes da tarefa
+
+Ao clicar em uma tarefa da lista, será exibido os detalhes da tarefa, e pessoa poderá também editar e remover a tarefa.
+
+![detalhes da tarefa](./frontend/public/assets/images/task-details.png)
+
+---
+
+# Api
+
+Para a renderização correta do calendário foi utilizada a API [Calendar JSON API](#https://github.com/Gonzagadavid/calendar-json-api)
+
+---
+
+# Tecnologias
+
+- React
+- Typescript
+- Testing Library
+- Axios
+- Eslint
+
+<div align="center">
+  <img height="100" width="100" src="./frontend/public/assets/icons/react.svg"/> 
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./frontend/public/assets/icons/typescript.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./frontend/public/assets/icons/testinglibrary.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./frontend/public/assets/icons/eslint.svg" />
+</div>
+
+# Deploy
+
+Para o deploy da aplicação foi escolhido a [Vercel](#https://vercel.com/)
+
+<h1><a href="https://appointment-calendar-frontend.vercel.app/" >Visite a Aplicação</a></h1>
+
+# Futuras implementações
+
+- cobertura de teste em 100% da aplicação
+
+- implementar página para a pessoa adminitradora direcionar tarefas para outras pessoas usuárias
+
+---
+
+# Backend
 
 # Arquitetura
 
 Sequindo o formato da arquitetura em camadas MSC *(Model Service Controllers)*, inicialmente o código foi desenvolvido de forma funcional, porém  foi refatorado para POO(programação orientada a objetos) ,a estruturação do código foi feita de forma tornar o código légivel e de fácil entendimento, visando o  reaproveitamento e não gerar problemas para a implementação de futuras melhorias, novas funcionalidades e escalabilidade.
 
-![estruturação de pastas](./assets/images/arquitetura.png)
+![estruturação de pastas](./backend/assets/images/arquitetura.png)
 
 
 # Rotas
@@ -332,26 +478,26 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 - ESlint
 
 <div align="center">
-  <img height="100" width="100" src="./assets/icons/express.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/express.svg" />
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/typescript.svg"/>
+  <img height="100" width="100" src="./backend/assets/icons/typescript.svg"/>
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/tsnode.svg"/>
+  <img height="100" width="100" src="./backend/assets/icons/tsnode.svg"/>
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/nodemon.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/nodemon.svg" />
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/mongodb.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/mongodb.svg" />
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/eslint.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/eslint.svg" />
   &nbsp;&nbsp;&nbsp;
-  <img height="100" width="100" src="./assets/icons/jsonwebtokens.svg" />
+  <img height="100" width="100" src="./backend/assets/icons/jsonwebtokens.svg" />
 </div>
 
 # Deploy
 
 Deploy feito no heroku [Heroku](https://www.heroku.com/)
 
- <img src="./assets/icons/heroku.svg" alt="heroku icon" height="70" width="70">
+ <img src="./backend/assets/icons/heroku.svg" alt="heroku icon" height="70" width="70">
 
 <h1><a href="https://appointment-calendar-frontend.vercel.app/" >Visite a Aplicação</a></h1>
 
@@ -360,4 +506,3 @@ Deploy feito no heroku [Heroku](https://www.heroku.com/)
 - Documentação Swagger
 - 100% de cobertura de teste
 - Rota de pessoa administradora para direcionar tarefas.
-
