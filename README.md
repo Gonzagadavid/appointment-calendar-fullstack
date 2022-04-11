@@ -2,7 +2,7 @@
 
 ---
 
-<h2><a href="https://github.com/Gonzagadavid/appointment-calendar-frontend" >App'ointment - Frontend</a></h2>
+<h2><a href="https://github.com/Gonzagadavid/appointment-calendar-frontend" >App'ointment Calendar - Frontend</a></h2>
 
 ---
 
