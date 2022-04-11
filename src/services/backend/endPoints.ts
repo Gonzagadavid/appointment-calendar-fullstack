@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3800';
+const BASE_URL = process.env.REACT_APP_BACKENDAPP || 'http://localhost:3800';
 
 export const POST_USER = `${BASE_URL}/users`;
 
