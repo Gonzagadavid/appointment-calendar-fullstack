@@ -4,7 +4,6 @@ import { LOGIN } from '../endPoints';
 
 const login = async (user: UserLogin) => {
   try {
-    console.log(LOGIN);
     const { data } = await axios.post(LOGIN, user);
     return data;
   } catch (err) {
