@@ -48,7 +48,7 @@ describe('verifica a renderização e o funcionamento do componente SelectDate',
     expect(providerProps.setDate).toBeCalledWith([2022, 'July']);
   });
 
-  it('verifica se o mês selecionado possui a class selected', () => {
+  it('verifica se o mês selecionado possui a classe selected', () => {
     renderWithAppProvider(<SelectDate />, { providerProps });
 
     const selectMonth = screen.getByRole('option', { name: '2023' });
