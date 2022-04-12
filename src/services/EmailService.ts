@@ -42,7 +42,7 @@ class EmailService {
     };
 
     mailTransporter.sendMail(mailDetails, (err, _data) => {
-      if (err) throw EMAIL_NOT_ACCESSIBLE;
+      if (err) return EMAIL_NOT_ACCESSIBLE;
 
       return EMAIL_SUCCESSFULLY;
     });
