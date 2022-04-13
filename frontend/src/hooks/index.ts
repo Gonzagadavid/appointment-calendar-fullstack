@@ -1,5 +1,4 @@
 import useAllTasks from './useAllTasks';
-import useCode from './useCode';
 import useFormInput from './useFormInput';
 import useInput from './useInput';
 import useStorage from './useStorage';
@@ -15,5 +14,4 @@ export {
   useFormInput,
   useAllTasks,
   useTask,
-  useCode,
 };

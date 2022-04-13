@@ -4,6 +4,10 @@
 
 ---
 
+<h2><a href="https://github.com/Gonzagadavid/appointment-calendar-fullstack" >App'ointment Calendar - Full Stack</a></h2>
+
+---
+
 <h2><a href="https://github.com/Gonzagadavid/appointment-calendar-backend" >App'ointment Calendar - Backend</a></h2>
 
 ---
@@ -38,15 +42,10 @@ Ao clicar em Sign Up na parte superior direita a pessoa usuária porderá se cad
 
 ![formulario de cadastro](./public/assets/images/cadastro.png)
 
-Após a pessoa fornecer as informações, um código de quatro caracteres e um digito será enviado no email, então será renderizado um modal para que a pessoa possa inserir e assim validar seu email.
-
-![modal do código](./public/assets/images/confirm-code.png)
-
 
 ## Login
 
 Ao clicar em Log In na parte superior da tela a pessoa usuária poderá entrar na aplicação, tendo a opção de manter-se logada. 
-Caso a pessoa esqueça a senha basta clicar em 'Forgot password' e a senha será enviada para seu o email.
 
 ![tela de login](./public/assets/images/login.png)
 
