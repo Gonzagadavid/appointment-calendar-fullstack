@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import DayBox from '../../components/DayBox';
 import renderWithAllProviders from '../helpers/renderWithAllProviders';
@@ -43,5 +44,9 @@ describe('verifica a renderização e o funcionamento do componente DayBox', () 
     expect(day).toBeInTheDocument();
     expect(day.tagName).toBe('BUTTON');
     expect(day).not.toContainHTML('span');
+
+    userEvent.click(day);
+
+    expect(providerProps.setSelectedDate).toBeCalledWith([2021, 'November', 20]);
   });
 });
