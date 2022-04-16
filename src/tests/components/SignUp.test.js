@@ -16,7 +16,7 @@ const userState = {
   keepConnect: false,
   sendLogin: jest.fn(),
   setName: jest.fn(),
-  sentLastname: jest.fn(),
+  setLastname: jest.fn(),
   sendNewUser: jest.fn(),
   setConfirm: jest.fn(),
 };
