@@ -22,7 +22,6 @@ function TaskDetails() {
     year, month, day, hour, minutes,
   } = getDate(date);
   const updateDate = getDate(updated);
-  
 
   const renderDetails = () => {
     setRenderTaskDetails(false);
