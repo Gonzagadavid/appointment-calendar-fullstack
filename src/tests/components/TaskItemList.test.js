@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import TaskItemList from '../../components/TaskItemList';
-import renderWithTaskProvider from '../helpers/renderWithTaskProvider copy';
+import renderWithTaskProvider from '../helpers/renderWithTaskProvider';
 
 describe('Verifica a renderização e o funcionamento do componente TaskItemList', () => {
   const providerProps = {
@@ -50,5 +50,5 @@ describe('Verifica a renderização e o funcionamento do componente TaskItemList
     userEvent.click(task);
 
     expect(providerProps.setIdSelected).toBeCalledWith('123');
-  })
+  });
 });
