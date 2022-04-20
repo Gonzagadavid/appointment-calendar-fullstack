@@ -23,6 +23,7 @@
     - [Login](#login)
     - [Adicionar tarefa](#adicionar-tarefa)
   - [API](#api)
+  - [Testes](#testes)
   - [Tecnologias](#tecnologias)
   - [Deploy](#deploy)
   - [Futuras Implementações](#futuras-implementações)
@@ -132,6 +133,14 @@ Ao clicar em uma tarefa da lista, será exibido os detalhes da tarefa, e pessoa 
 # Api
 
 Para a renderização correta do calendário foi utilizada a API [Calendar JSON API](#https://github.com/Gonzagadavid/calendar-json-api)
+
+---
+
+# Testes
+
+Desenvolvido testes unitários para todos os componentes da aplicação.
+
+![cobertura de testes](./frontend/public/assets/images/testes.png)
 
 ---
 
