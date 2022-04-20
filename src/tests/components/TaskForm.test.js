@@ -94,7 +94,7 @@ describe('Verifica a renderização e o funcionamento do componente TaskForm', (
   });
 
   it('verifica ao editar os dados das tarefas estão nos elementos do formulário', () => {
-    taskState.edit = true
+    taskState.edit = true;
     renderWithAllProviders(<TaskForm />, appState, {}, {}, taskState);
 
     const title = screen.getByPlaceholderText('Title');
