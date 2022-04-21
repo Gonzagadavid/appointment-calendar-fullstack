@@ -7,8 +7,8 @@ import { UserInfo } from '../types';
 class TasksController {
   private service: TasksService;
 
-  constructor() {
-    this.service = new TasksService();
+  constructor(service = new TasksService()) {
+    this.service = service;
     this.getAllTasks = this.getAllTasks.bind(this);
     this.getTask = this.getTask.bind(this);
     this.postTask = this.postTask.bind(this);

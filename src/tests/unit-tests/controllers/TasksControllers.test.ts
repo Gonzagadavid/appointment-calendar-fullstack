@@ -1,0 +1,49 @@
+import { Request, Response } from 'express';
+import TasksController from '../../../controllers/TasksController';
+import { INTERNAL_ERROR } from '../../../errors';
+import TasksService from '../../../services/TasksService';
+
+const tasks = [
+  {
+    title: 'Tarefa 1',
+    status: 'Programmed',
+    date: '2022-04-10T16:46:08.471+00:00',
+    id: '6253391c4b6c6911e42b7593',
+  },
+  {
+    title: 'Tarefa 2',
+    status: 'Programmed',
+    date: '2022-04-10T16:46:08.471+00:00',
+    id: '625339394b6c6911e42b7594',
+  },
+];
+
+describe('verifica o funcionamento dos metodos da classe TaskController', () => {
+  const next = jest.fn();
+  const json = jest.fn();
+  const res = {
+    status: jest.fn(() => ({ json })),
+  } as unknown as Response;
+  const req = { user: { userId: '1', email: 'fulano@email.com' } } as Request;
+
+  afterEach(jest.clearAllMocks);
+
+  it('verifica o funcionamento do método getAllTasks', async () => {
+    const service = new TasksService();
+    service.findAllTasks = jest.fn().mockResolvedValue(tasks);
+    const controller = new TasksController(service);
+    await controller.getAllTasks(req, res, next);
+
+    expect(res.status).toBeCalledWith(200);
+    expect(json).toBeCalledWith({ tasks });
+  });
+
+  it('verifica se ao ocorrer um erro no método getAllTasks uma mensagem é renderizada', async () => {
+    const service = new TasksService();
+    service.findAllTasks = jest.fn().mockRejectedValue(INTERNAL_ERROR);
+    const controller = new TasksController(service);
+    await controller.getAllTasks(req, res, next);
+
+    expect(next).toBeCalledWith(INTERNAL_ERROR);
+  });
+});
