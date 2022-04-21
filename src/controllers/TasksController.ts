@@ -34,7 +34,6 @@ class TasksController {
       const { userId } = user as UserInfo;
 
       const task = await this.service.findTask(id, userId);
-
       res.status(OK).json(task);
     } catch (err) {
       next(err);
