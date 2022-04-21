@@ -4,14 +4,23 @@ import { INTERNAL_ERROR } from '../../../errors';
 import TasksService from '../../../services/TasksService';
 
 const task = {
+  id: '6253391c4b6c6911e42b7593',
+  userId: '625333e34b6c6911e42b7590',
+  email: 'user@server.com',
   title: 'Tarefa 1',
+  description: 'Descrição da tarefa 1',
   status: 'Programmed',
   date: '2022-04-10T16:46:08.471+00:00',
-  id: '6253391c4b6c6911e42b7593',
+  updated: '2022-04-10T20:07:56.489Z',
 };
 
 const tasks = [
-  task,
+  {
+    title: 'Tarefa 1',
+    status: 'Programmed',
+    date: '2022-04-10T16:46:08.471+00:00',
+    id: '6253391c4b6c6911e42b7593',
+  },
   {
     title: 'Tarefa 2',
     status: 'Programmed',
@@ -66,6 +75,25 @@ describe('verifica o funcionamento do métodos da classe TaskController', () => 
     service.findTask = jest.fn().mockRejectedValue(INTERNAL_ERROR);
     const controller = new TasksController(service);
     await controller.getTask(req, res, next);
+
+    expect(next).toBeCalledWith(INTERNAL_ERROR);
+  });
+
+  it('verifica o funcionamento do método postTask', async () => {
+    const service = new TasksService();
+    service.insertTask = jest.fn().mockResolvedValue(task);
+    const controller = new TasksController(service);
+    await controller.postTask(req, res, next);
+
+    expect(res.status).toBeCalledWith(201);
+    expect(json).toBeCalledWith(task);
+  });
+
+  it('verifica se ao ocorrer um erro no método getTask é passado para o next', async () => {
+    const service = new TasksService();
+    service.insertTask = jest.fn().mockRejectedValue(INTERNAL_ERROR);
+    const controller = new TasksController(service);
+    await controller.postTask(req, res, next);
 
     expect(next).toBeCalledWith(INTERNAL_ERROR);
   });
