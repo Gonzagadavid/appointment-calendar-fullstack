@@ -62,7 +62,7 @@ describe('verifica o funcionamento dos métodos da classe TaskService', () => {
     });
   });
 
-  it('verifica o funcionamento do método removeTask quando a task não exite', async () => {
+  it('verifica o funcionamento do método removeTask', async () => {
     const model = new TaskModel();
     model.findTask = jest.fn().mockResolvedValue(task);
     model.removeTask = jest.fn().mockResolvedValue(null);
@@ -70,5 +70,35 @@ describe('verifica o funcionamento dos métodos da classe TaskService', () => {
     await service.removeTask('6253391c4b6c6911e42b7593', '625333e34b6c6911e42b7590');
 
     expect(model.removeTask).toBeCalledWith('6253391c4b6c6911e42b7593');
+  });
+
+  it('verifica o funcionamento do método updateTask', async () => {
+    const model = new TaskModel();
+    model.findTask = jest.fn().mockResolvedValue({ ...task });
+    model.updateTask = jest.fn().mockResolvedValue(null);
+    const service = new TasksService(model);
+    await service.updateTask('6253391c4b6c6911e42b7593', { ...reqTask, title: 'modificado' });
+
+    expect(model.updateTask).toBeCalledTimes(1);
+  });
+
+  it('verifica o funcionamento do método updateTask quando a task não pertence ao usuário', async () => {
+    const model = new TaskModel();
+    model.findTask = jest.fn().mockResolvedValue({ ...task });
+    model.updateTask = jest.fn().mockResolvedValue(null);
+    const service = new TasksService(model);
+
+    expect(async () => {
+      const response = await service
+        .updateTask(
+          '6253391c4b6c6911e42b7593',
+          {
+            ...reqTask,
+            title: 'modificado',
+            userId: new ObjectId('625333e34b6c6911e42b7599'),
+          },
+        );
+      return response;
+    }).rejects.toEqual(UNAUTHORIZED_USER);
   });
 });

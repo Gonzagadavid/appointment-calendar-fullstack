@@ -45,7 +45,7 @@ class TasksService {
 
     const oldTask = await this.findTask(id, String(userId));
 
-    if (oldTask.userId !== task.userId) throw UNAUTHORIZED_USER;
+    if (String(oldTask.userId) !== String(task.userId)) throw UNAUTHORIZED_USER;
 
     await this.model.updateTask(id, { ...task, updated });
   }
