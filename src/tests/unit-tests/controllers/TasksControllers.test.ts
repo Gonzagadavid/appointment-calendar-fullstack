@@ -30,7 +30,7 @@ const tasks = [
   },
 ];
 
-describe('verifica o funcionamento do métodos da classe TaskController', () => {
+describe('verifica o funcionamento dos métodos da classe TaskController', () => {
   const next = jest.fn();
   const json = jest.fn();
   const res = {
