@@ -1,7 +1,8 @@
+import { ObjectId } from 'mongodb';
 import { NOT_FOUND_TASK, UNAUTHORIZED_USER } from '../../../errors';
 import TaskModel from '../../../models/TaskModel';
 import TasksService from '../../../services/TasksService';
-import { tasks, task } from '../mocks/tasks';
+import { tasks, task, reqTask } from '../mocks/tasks';
 
 describe('verifica o funcionamento dos métodos da classe TaskService', () => {
   it('verifica o funcionamento do método findAllTasks', async () => {
@@ -44,5 +45,20 @@ describe('verifica o funcionamento dos métodos da classe TaskService', () => {
       const response = await service.findTask('6253391c4b6c6911e42b7593', '625333e34b6c6911e42b7599');
       return response;
     }).rejects.toEqual(UNAUTHORIZED_USER);
+  });
+
+  it('verifica o funcionamento do método insertTask', async () => {
+    const model = new TaskModel();
+    model.insertOne = jest.fn().mockResolvedValue({ insertedId: '6253391c4b6c6911e42b7593' });
+    const service = new TasksService(model);
+
+    const response = await service.insertTask(reqTask);
+
+    expect(response).toEqual({
+      ...task,
+      updated: new Date(),
+      date: new Date(task.date),
+      userId: new ObjectId(task.userId),
+    });
   });
 });
