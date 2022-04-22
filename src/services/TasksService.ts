@@ -5,8 +5,8 @@ import { Task } from '../types';
 class TasksService {
   private model: TaskModel;
 
-  constructor() {
-    this.model = new TaskModel();
+  constructor(model = new TaskModel()) {
+    this.model = model;
   }
 
   public async findAllTasks(userId: string) {
