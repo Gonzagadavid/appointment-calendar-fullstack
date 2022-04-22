@@ -61,4 +61,14 @@ describe('verifica o funcionamento dos métodos da classe TaskService', () => {
       userId: new ObjectId(task.userId),
     });
   });
+
+  it('verifica o funcionamento do método removeTask quando a task não exite', async () => {
+    const model = new TaskModel();
+    model.findTask = jest.fn().mockResolvedValue(task);
+    model.removeTask = jest.fn().mockResolvedValue(null);
+    const service = new TasksService(model);
+    await service.removeTask('6253391c4b6c6911e42b7593', '625333e34b6c6911e42b7590');
+
+    expect(model.removeTask).toBeCalledWith('6253391c4b6c6911e42b7593');
+  });
 });
