@@ -5,8 +5,8 @@ import UserService from '../services/UserService';
 class UserController {
   private service: UserService;
 
-  constructor() {
-    this.service = new UserService();
+  constructor(service = new UserService()) {
+    this.service = service;
     this.postLogin = this.postLogin.bind(this);
     this.postUsers = this.postUsers.bind(this);
   }
