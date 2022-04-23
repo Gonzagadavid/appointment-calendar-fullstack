@@ -3,11 +3,7 @@ import { USER_CREATED } from '../../../constants/strings';
 import UserService from '../../../services/UserService';
 import UserController from '../../../controllers/UserController';
 import { INTERNAL_ERROR } from '../../../errors';
-
-const user = {
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYyNTMzM2UzNGI2YzY5MTFlNDJiNzU5MCIsImVtYWlsIjoidXNlckBzZXJ2ZXIuY29tIn0sImlhdCI6MTY0OTYyMDI5M30.OfG82bGfsF_TJqLJ3Cp1SIAZMgaTGxxY_WChRBX-85E',
-  userName: 'User Test',
-};
+import { reqUser, user } from '../mocks/user';
 
 describe('verifica o funcionamento dos métodos da classe UserController', () => {
   const next = jest.fn();
@@ -16,12 +12,7 @@ describe('verifica o funcionamento dos métodos da classe UserController', () =>
     status: jest.fn(() => ({ json })),
   } as unknown as Response;
   const req = {
-    body: {
-      name: 'User',
-      lastname: 'Test',
-      email: 'user@server.com',
-      password: '123456',
-    },
+    body: reqUser,
   } as Request;
 
   it('verifica o funcionamento do método postUsers', async () => {
