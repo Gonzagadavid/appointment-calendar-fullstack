@@ -36,4 +36,20 @@ describe('verifica os métodos da classe TaskModel', () => {
       _id: new ObjectId(task._id),
     });
   });
+
+  it('verifica o funcionamento do méotodo updateTask', async () => {
+    const tasksDb = tasks as Collection;
+    await tasksDb.insertOne({ ...task, _id: new ObjectId(task._id) });
+    const model = new TaskModel();
+
+    const response = await model.findTask(task._id);
+
+    expect(response).toEqual({
+      ...task,
+      title: 'modificada',
+      date: new Date(task.date),
+      userId: new ObjectId(task.userId),
+      _id: new ObjectId(task._id),
+    });
+  });
 });
