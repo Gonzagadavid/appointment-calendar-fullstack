@@ -37,19 +37,13 @@ describe('verifica os métodos da classe TaskModel', () => {
     });
   });
 
-  it('verifica o funcionamento do méotodo updateTask', async () => {
+  it('verifica o funcionamento do méotodo findTask', async () => {
     const tasksDb = tasks as Collection;
     await tasksDb.insertOne({ ...task, _id: new ObjectId(task._id) });
     const model = new TaskModel();
 
     const response = await model.findTask(task._id);
 
-    expect(response).toEqual({
-      ...task,
-      title: 'modificada',
-      date: new Date(task.date),
-      userId: new ObjectId(task.userId),
-      _id: new ObjectId(task._id),
-    });
+    expect(response).toEqual({ ...task, _id: new ObjectId(task._id) });
   });
 });
