@@ -1,6 +1,6 @@
 import { Collection, MongoClient, ObjectId } from 'mongodb';
 import mongoClientMock from '../mocks/mongoClientMock';
-import { reqTask, task } from '../mocks/tasks';
+import { reqTask, task, tasks as allTasks } from '../mocks/tasks';
 import TaskModel from '../../../models/TaskModel';
 
 describe('verifica os métodos da classe TaskModel', () => {
@@ -45,5 +45,21 @@ describe('verifica os métodos da classe TaskModel', () => {
     const response = await model.findTask(task._id);
 
     expect(response).toEqual({ ...task, _id: new ObjectId(task._id) });
+  });
+
+  it('verifica o funcionamento do méotodo findAllTasks', async () => {
+    const tasksDb = tasks as Collection;
+    await tasksDb.insertMany([
+      { ...task, _id: new ObjectId(task._id) },
+      { ...task, _id: new ObjectId('625339394b6c6911e42b7594'), title: 'Tarefa 2' },
+    ]);
+    const model = new TaskModel();
+
+    const response = await model.findAllTasks(task.userId);
+
+    expect(response).toEqual(allTasks.map((taskResp) => ({
+      ...taskResp,
+      id: new ObjectId(taskResp.id),
+    })));
   });
 });
