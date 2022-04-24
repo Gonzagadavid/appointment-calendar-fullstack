@@ -72,4 +72,14 @@ describe('verifica os métodos da classe TaskModel', () => {
 
     expect(response.deletedCount).toBe(1);
   });
+
+  it('verifica o funcionamento do méotodo insertOne', async () => {
+    const tasksDb = tasks as Collection;
+    const model = new TaskModel();
+    await model.insertOne({ ...task, _id: new ObjectId(task._id) });
+
+    const response = await tasksDb.findOne({ _id: new ObjectId(task._id) });
+
+    expect(response).toEqual({ ...task, _id: new ObjectId(task._id) });
+  });
 });
