@@ -381,6 +381,7 @@ Para rodar os testes localmente basta rodar o comando `npm test` ou `npm test <n
 - MongoDB
 - Json Web Token
 - Dotenv
+- Jest
 - ESlint
 
 <div align="center">
@@ -393,6 +394,8 @@ Para rodar os testes localmente basta rodar o comando `npm test` ou `npm test <n
   <img height="100" width="100" src="./assets/icons/nodemon.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/mongodb.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./assets/icons/jest.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/eslint.svg" />
   &nbsp;&nbsp;&nbsp;
