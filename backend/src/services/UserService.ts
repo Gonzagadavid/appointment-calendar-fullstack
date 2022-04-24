@@ -7,8 +7,8 @@ import { User, UserInserted, UserLogin } from '../types';
 class UserService {
   private model: UserModel;
 
-  constructor() {
-    this.model = new UserModel();
+  constructor(model = new UserModel()) {
+    this.model = model;
   }
 
   private async checkEmailExists(email: string) {

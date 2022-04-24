@@ -5,8 +5,8 @@ import { Task } from '../types';
 class TasksService {
   private model: TaskModel;
 
-  constructor() {
-    this.model = new TaskModel();
+  constructor(model = new TaskModel()) {
+    this.model = model;
   }
 
   public async findAllTasks(userId: string) {
@@ -45,7 +45,7 @@ class TasksService {
 
     const oldTask = await this.findTask(id, String(userId));
 
-    if (oldTask.userId !== task.userId) throw UNAUTHORIZED_USER;
+    if (String(oldTask.userId) !== String(task.userId)) throw UNAUTHORIZED_USER;
 
     await this.model.updateTask(id, { ...task, updated });
   }

@@ -7,8 +7,8 @@ import { UserInfo } from '../types';
 class TasksController {
   private service: TasksService;
 
-  constructor() {
-    this.service = new TasksService();
+  constructor(service = new TasksService()) {
+    this.service = service;
     this.getAllTasks = this.getAllTasks.bind(this);
     this.getTask = this.getTask.bind(this);
     this.postTask = this.postTask.bind(this);
@@ -34,7 +34,6 @@ class TasksController {
       const { userId } = user as UserInfo;
 
       const task = await this.service.findTask(id, userId);
-
       res.status(OK).json(task);
     } catch (err) {
       next(err);

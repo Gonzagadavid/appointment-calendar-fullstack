@@ -25,6 +25,7 @@
   - [DELETE /tasks/:id](delete-/task/:id)
 - [Banco de Dados](#banco-de-dados)
 - [Validação](#validação)
+- [Testes](#testes)
 - [Tecnologias](#tecnologias)
 - [Deploy](#deploy)
 - [Implementações Futuras](implementações-futuras)
@@ -324,6 +325,15 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 
 ---
 
+# Testes
+
+Desenvolvido testes unitários para as camadas models, services e controllers.
+Para rodar os testes localmente basta rodar o comando `npm test` ou `npm test <nome do arquivo>`.
+
+![cobertura de testes](./assets/images/testes.png)
+
+---
+
 # Tecnologias
 
 - Express
@@ -333,6 +343,7 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
 - MongoDB
 - Json Web Token
 - Dotenv
+- Jest
 - ESlint
 
 <div align="center">
@@ -345,6 +356,8 @@ Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando
   <img height="100" width="100" src="./assets/icons/nodemon.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/mongodb.svg" />
+  &nbsp;&nbsp;&nbsp;
+  <img height="100" width="100" src="./assets/icons/jest.svg" />
   &nbsp;&nbsp;&nbsp;
   <img height="100" width="100" src="./assets/icons/eslint.svg" />
   &nbsp;&nbsp;&nbsp;
