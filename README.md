@@ -27,6 +27,7 @@
   - [DELETE /tasks/:id](delete-/task/:id)
 - [Banco de Dados](#banco-de-dados)
 - [Validação](#validação)
+- [Testes](#testes)
 - [Tecnologias](#tecnologias)
 - [Deploy](#deploy)
 - [Implementações Futuras](implementações-futuras)
@@ -359,6 +360,15 @@ O banco de dados usado para aplicação foi o MongoDB, sendo ele um banco não r
 # Validação
 
 Para a validação de entrada foi desenvolvido middlewares, dessa forma evitando o desperdício de recursos com requisições inválidas. Para gerar e validar o token foi utilizado o jsonwebtoken, podendo utilizar informações da pessoa usuária contidas no payload para registro de suas ações evitando uso de recursos para obter essas informações. 
+
+---
+
+# Testes
+
+Desenvolvido testes unitários para as camadas models, services e controllers.
+Para rodar os testes localmente basta rodar o comando `npm test` ou `npm test <nome do arquivo>`.
+
+![cobertura de testes](./assets/images/testes.png)
 
 ---
 

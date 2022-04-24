@@ -8,8 +8,8 @@
     "npm": "8.1.2"
   },
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --collect-coverage",
+    "test": "jest --force-exit --detectOpenHandles",
+    "coverage": "jest --coverage --force-exit --detectOpenHandles",
     "dev": "ts-node-dev --respawn --ignore-watch src/node_modules --transpile-only src index.ts",
     "start": "tsc && node dist/index.js",
     "postinstall": "tsc",
