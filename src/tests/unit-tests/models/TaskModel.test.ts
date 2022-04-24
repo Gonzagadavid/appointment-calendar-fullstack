@@ -62,4 +62,14 @@ describe('verifica os métodos da classe TaskModel', () => {
       id: new ObjectId(taskResp.id),
     })));
   });
+
+  it('verifica o funcionamento do méotodo removeTask', async () => {
+    const tasksDb = tasks as Collection;
+    await tasksDb.insertOne({ ...task, _id: new ObjectId(task._id) });
+    const model = new TaskModel();
+
+    const response = await model.removeTask(task._id);
+
+    expect(response.deletedCount).toBe(1);
+  });
 });
