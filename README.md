@@ -123,6 +123,7 @@ Para a renderização correta do calendário foi utilizada a API [Calendar JSON 
 # Testes
 
 Desenvolvido testes unitários para todos os componentes da aplicação.
+Para rodar os testes localmente use o comando `npm test` ou `npm test <nome do arquivo>`
 
 ![cobertura de testes](./public/assets/images/testes.png)
 
